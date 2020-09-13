@@ -1,0 +1,15 @@
+{
+  "name": "javascript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "qunit": "^2.11.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "qunit"
+  },
+  "author": "",
+  "license": "ISC"
+}
