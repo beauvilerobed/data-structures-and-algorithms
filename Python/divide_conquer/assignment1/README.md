@@ -17,5 +17,5 @@ So: what's the product of the following two 64-digit numbers?
 All test cases were taken from [here](https://github.com/beaunus/stanford-algs/tree/master/testCases/course1/assignment1Multiplication)
 
 # To start
-
-`python3 run_tests.py`
+`cd assignment1`
+`python3 test.py`

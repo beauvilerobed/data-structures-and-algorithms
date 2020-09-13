@@ -1,5 +1,3 @@
-import math
-
 def karatsuba(strnum1, strnum2):
   num1 = int(strnum1)
   num2 = int(strnum2)
