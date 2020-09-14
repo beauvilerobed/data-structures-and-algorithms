@@ -1,7 +1,6 @@
 import unittest
 from karatsuba import karatsuba
 
-
 class TestKaratsuba(unittest.TestCase):
   def test_positive_integers(self):
     expected = 123456789 * 987654321
@@ -14,4 +13,4 @@ class TestKaratsuba(unittest.TestCase):
     self.assertEqual(expected, actual)
     
 if __name__ == '__main__':
-    unittest.main()
+  unittest.main()

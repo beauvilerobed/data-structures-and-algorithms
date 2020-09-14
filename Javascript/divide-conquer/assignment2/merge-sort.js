@@ -7,7 +7,7 @@ function mergeSort(array, arrayLength) {
   var firstHalf = array.slice(0, half);
   var secondHalf = array.slice(half);
 
-  var firstSorted = mergeSort(firstHalf, firstHalf.length);
+  var firstSorted = mergeSort(firstHalf, firstHalf.length)
   var secondSorted = mergeSort(secondHalf, secondHalf.length);
   var mergeHalfs = merge(firstSorted, secondSorted, arrayLength);
 
