@@ -7,6 +7,7 @@ function quickSort(array, arrayLength) {
   var partition = partitionAroundArray(array, pivot, arrayLength); 
   var partition1 = partition[0];
   var partition2 = partition[1];
+  
   var firstPart = quickSort(partition1, partition1.length);
   var secondPart = quickSort(partition2, partition2.length);
 
