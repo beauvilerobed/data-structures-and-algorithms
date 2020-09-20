@@ -19,17 +19,14 @@ function choosePivot(inputArray) {
 }
 
 function partitionAroundArray(inputArray, pivot) {
-  if (inputArray.length === 0) {
-      return
-  }
   var i = 1;
   for (var j = 1; j < inputArray.length; j++) {
-      if (inputArray[j] < pivot) {
-          var temp = inputArray[i];
-          inputArray[i] = inputArray[j];
-          inputArray[j] = temp;
-          i++;
-      }
+    if (inputArray[j] < pivot) {
+      var temp = inputArray[i];
+      inputArray[i] = inputArray[j];
+      inputArray[j] = temp;
+      i++;
+    }
   }
   var temp2 = inputArray[i-1];
   inputArray[i-1] = inputArray[0];
@@ -37,7 +34,7 @@ function partitionAroundArray(inputArray, pivot) {
  
   // if input array is already sorted let i be 2 so the array is slice properly
   if (i === 1) {
-      i = 2;
+    i = 2;
   }
   return [inputArray.slice(0, i-1), inputArray.slice(i-1)];
 }
