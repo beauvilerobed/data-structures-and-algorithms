@@ -1,3 +1,4 @@
+// Only for testing purposes. window is not defined
 var globalCount = 0;
 
 function countAndQuickSort(inputArray, choosePivot) {
@@ -13,6 +14,7 @@ function partitionAroundArray(inputArray, leftMost, rightMost, choosePivot) {
     return; 
   }
   
+  // choose the pivot index
   var pivotIndex = selectFirst(leftMost, rightMost);;
   if (choosePivot === 'rightMost') {
     pivotIndex = selectLast(leftMost, rightMost);
