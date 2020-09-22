@@ -1,4 +1,4 @@
-const countAndQuickSort = require('../divide-conquer/assignment3/countQuickSort');
+const countAndQuickSort = require('../divide-conquer/assignment3/count-quick-sort');
 
 QUnit.module('conutAndQuickSort');
 
