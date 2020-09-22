@@ -55,3 +55,4 @@ def median_value(input_array):
   if len(input_array) % 2:
     return input_array[middle_index]
   return (input_array[middle_index - 1] + input_array[middle_index]) / 2
+  
