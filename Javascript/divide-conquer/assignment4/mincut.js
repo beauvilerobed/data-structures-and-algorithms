@@ -6,7 +6,7 @@ function doThirtyItrMincut(graph) {
   var crossingEdges = 2 * numVertexes;
 
   var iterate = 30;
-  let minimumCut = graph;
+  var minimumCut = graph;
 
   while (iterate > 0) {
     var newGraph = clonedeep(graph);
