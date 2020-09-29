@@ -1,4 +1,4 @@
-const clonedeep = require('lobash.clonedeep');
+const clonedeep = require('lodash/clonedeep');
 
 function doThirtyItrMincut(graph) {
   var graphKeys = Object.keys(graph);
@@ -6,14 +6,13 @@ function doThirtyItrMincut(graph) {
   var crossingEdges = 2 * numVertexes;
 
   var iterate = 30;
-  var minimumCut = graph;
+  let minimumCut = graph;
 
   while (iterate > 0) {
     var newGraph = clonedeep(graph);
     var localMinimum = computeMincut(newGraph);
     var keys = Object.keys(localMinimum);
     var localMinCrossingEdges = localMinimum[keys[0]].length
-
     if (crossingEdges > localMinCrossingEdges) {
       crossingEdges = localMinCrossingEdges;
       minimumCut = localMinimum;
@@ -30,6 +29,10 @@ function computeMincut(graph) {
     return graph;
   }
 
+  if (graphLength >= 5) {
+    return graph;
+  }
+
   var edges = [];
 
   for (k in graph) {
@@ -38,26 +41,30 @@ function computeMincut(graph) {
       edges.push(edge);
     }
   }
-  
-  var randomEdge = edge[Math.floor(Math.random() * edges.length)];
+  var randomEdge = edges[Math.floor(Math.random() * edges.length)];
   var vertex = randomEdge[0];
   var vertexToMerge = randomEdge[1];
   var edgesOfGraphVertex = graph[vertex];
 
   var mergeVertexName = vertex;
   var edgesOfGraphMergeVertex = graph[vertexToMerge];
-  
-  
-  penultimateEdges = edgesOfGraphVertex + edgesOfGraphMergeVertex;
-  finalEdges = penultimateEdges.filter(v => (v !== vertex) && (v !== vertexToMerge));
 
-  delete graph.vertex;
-  delete graph.vertexToMerge;
+  penultimateEdges = edgesOfGraphVertex.concat(edgesOfGraphMergeVertex);
+  finalEdges = [];
+
+  for (v in penultimateEdges) {
+      if ((v != vertex) && (v != vertexToMerge)) {
+          finalEdges.push(v);
+      }
+  }
+  
+  delete graph[vertex];
+  delete graph[vertexToMerge];
 
   for (k in graph) {
     tempEdges = [];
     for (edge in graph[k]) {
-      if ((edge === vertex) || (edge === vertexToMerge)) {
+      if ((edge == vertex) || (edge == vertexToMerge)) {
         tempEdges.push(mergeVertexName);
       } else {
         tempEdges.push(edge);
@@ -65,7 +72,7 @@ function computeMincut(graph) {
     }
     graph[k] = tempEdges;
   }
-  graph[vertexToMerge] = finalEdges;
+  graph[mergeVertexName] = finalEdges;
   return computeMincut(graph);
 }
 
