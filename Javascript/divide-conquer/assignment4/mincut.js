@@ -9,6 +9,7 @@ function doThirtyItrMincut(graph) {
   let minimumCut = graph;
 
   while (iterate > 0) {
+    console.log("iteration" + iterate)
     var newGraph = clonedeep(graph);
     var localMinimum = computeMincut(newGraph);
     var keys = Object.keys(localMinimum);
@@ -29,43 +30,44 @@ function computeMincut(graph) {
     return graph;
   }
 
-  if (graphLength >= 5) {
-    return graph;
-  }
-
   var edges = [];
 
-  for (k in graph) {
-    for (e in graph[k]) {
+  for (const k in graph) {
+    for (const e of graph[k]) {
       var edge = [k, e];
       edges.push(edge);
     }
   }
+  console.log(edges)
   var randomEdge = edges[Math.floor(Math.random() * edges.length)];
+  console.log(randomEdge)
   var vertex = randomEdge[0];
   var vertexToMerge = randomEdge[1];
+  console.log(vertexToMerge)
   var edgesOfGraphVertex = graph[vertex];
 
   var mergeVertexName = vertex;
   var edgesOfGraphMergeVertex = graph[vertexToMerge];
+  console.log(edgesOfGraphVertex)
+  console.log(edgesOfGraphMergeVertex)
 
   penultimateEdges = edgesOfGraphVertex.concat(edgesOfGraphMergeVertex);
   finalEdges = [];
 
-  for (v in penultimateEdges) {
+  for (v of penultimateEdges) {
       if ((v != vertex) && (v != vertexToMerge)) {
           finalEdges.push(v);
       }
   }
-  
+  console.log(graph)
   delete graph[vertex];
   delete graph[vertexToMerge];
-
+  console.log(graph)
   for (k in graph) {
     tempEdges = [];
-    for (edge in graph[k]) {
+    for (edge of graph[k]) {
       if ((edge == vertex) || (edge == vertexToMerge)) {
-        tempEdges.push(mergeVertexName);
+        tempEdges.push(parseInt(mergeVertexName));
       } else {
         tempEdges.push(edge);
       }
@@ -73,6 +75,8 @@ function computeMincut(graph) {
     graph[k] = tempEdges;
   }
   graph[mergeVertexName] = finalEdges;
+  console.log(graph)
+  console.log("neeeeeext")
   return computeMincut(graph);
 }
 
