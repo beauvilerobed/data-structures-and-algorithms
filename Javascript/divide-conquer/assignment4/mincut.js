@@ -5,7 +5,7 @@ function doThirtyItrMincut(graph) {
   var numVertexes = graphKeys.length;
   var crossingEdges = 2 * numVertexes;
 
-  var iterate = 30;
+  var iterate = 40;
   var minimumCut = graph;
 
   while (iterate > 0) {
