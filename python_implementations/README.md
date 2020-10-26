@@ -1,0 +1,1 @@
+Each assignment contains a `assignment_name.py` and a `assignment_name_unit_test.py` that runs and tests the created algorithm against a number of example test cases. 
