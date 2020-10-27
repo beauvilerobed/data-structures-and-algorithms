@@ -1,4 +1,6 @@
 import copy
+import sys
+
 
 class Node:
     def __init__(self, _id, edges=None):
@@ -6,9 +8,6 @@ class Node:
         self.edges = edges or list()
         self.explored = False
         self.finished = False
-
-    def __repr__(self):
-        return '<Node {}, connected to {}>'.format(self.id, self.edges)
 
 
 class Graph:
@@ -51,9 +50,7 @@ def find_scc(graph):
                 components.append(depth_first_search(node))
         return components
         
-    print(list(graph.nodes.values())[:1])
     graph.reverse()
-    print(list(graph.nodes.values())[:1])
     f = list()
     depth_loop(sorted(graph.nodes.values(),
                       key=lambda x : x.id,
@@ -63,3 +60,24 @@ def find_scc(graph):
     components = depth_loop(finishing_times)
     components.extend([0]*5)
     return sorted(components, reverse=True)[:5]
+
+def main():
+    data = sys.stdin.readlines()
+    graph = Graph()
+    for line in data:
+        (_id, connecting_vertex) = (int(i) for i in line.split(' ', 1))
+        if _id not in graph.nodes:
+            graph.nodes[_id] = Node(_id, edges=[connecting_vertex])
+        else:
+            graph.nodes[_id].edges.append(connecting_vertex)
+            
+        if connecting_vertex not in graph.nodes:
+            graph.nodes[connecting_vertex] = Node(connecting_vertex, edges=[-_id])
+        else:
+            graph.nodes[connecting_vertex].edges.append(-_id)
+    
+    print(find_scc(graph))
+
+
+if __name__ == '__main__':
+    main()
