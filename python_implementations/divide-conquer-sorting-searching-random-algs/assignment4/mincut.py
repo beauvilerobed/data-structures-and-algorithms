@@ -2,7 +2,7 @@ import copy
 import random
 import sys
 
-def do_thirty_iter_mincut(graph):
+def do_iter_mincut(graph):
   num_vertexes = len(graph.keys())
   crossing_edges = 2 * num_vertexes
 
@@ -73,8 +73,7 @@ def main():
     vertex = values[0]
     edges = values[1:]
     graph[vertex] = edges
-    print(do_thirty_iter_mincut(graph))
-
+  print(do_iter_mincut(graph)) 
 
 if __name__ == '__main__':
   main()
