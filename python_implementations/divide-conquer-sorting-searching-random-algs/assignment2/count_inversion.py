@@ -15,7 +15,7 @@ def sort_count(array, arraylen):
 def count_split_inv(array1, array2, sumlen):
   result = []
   count = 0
-  for k in range(sumlen):
+  for _ in range(sumlen):
     if len(array1) == 0 or len(array2) == 0:
       result.extend(array1)
       result.extend(array2)
