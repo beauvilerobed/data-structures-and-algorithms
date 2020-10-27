@@ -1,4 +1,4 @@
-# Topics for the Stanford & UCS Data Stuctures and Algorithms Series on Coursera
+# Topics from the Stanford & UCS Data Stuctures and Algorithms Series on Coursera
 
 Which include:
 
