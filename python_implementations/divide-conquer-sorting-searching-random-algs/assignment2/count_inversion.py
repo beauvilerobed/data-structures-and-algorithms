@@ -1,3 +1,6 @@
+import sys
+
+
 def sort_count(array, arraylen):
   if arraylen == 1:
     return [array, 0]
@@ -27,3 +30,11 @@ def count_split_inv(array1, array2, sumlen):
       result.append(array2.pop(0))
     
   return [result, count]
+
+def main():
+  data = sys.stdin.read()
+  data_set = list(map(int, data.split()))
+  print(sort_count(data_set, len(data_set))[1])
+
+if __name__ == '__main__':
+    main()

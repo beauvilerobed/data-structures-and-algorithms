@@ -1,25 +1,8 @@
 import unittest
 from count_inversion import sort_count
-import os
-import glob
+from file_reader import read_multiple_files
 
-file_path = os.getcwd() + '/tests/*'
-file_path_length = len(file_path) - 1
-
-paths = glob.glob(file_path)
-input_files = []
-output_files = []
-assginment = ''
-for path in paths:
-  if path[file_path_length: file_path_length + 5] == 'input':
-    input_files.append(path)
-  elif path[file_path_length: file_path_length + 6] == 'output':
-    output_files.append(path)
-  else:
-    assginment = path
-
-input_files.sort()
-output_files.sort()
+input_files, output_files, assignment, file_path_length = read_multiple_files()
 
 inputs_outputs = []
 for name1, name2 in zip(input_files, output_files):
