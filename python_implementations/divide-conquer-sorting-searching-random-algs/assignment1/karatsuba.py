@@ -1,3 +1,4 @@
+
 def karatsuba(strnum1, strnum2):
   num1 = int(strnum1)
   num2 = int(strnum2)
@@ -19,3 +20,11 @@ def karatsuba(strnum1, strnum2):
   third = karatsuba(a + b, c + d)
 
   return first * (base ** 2) + second + base * (third - first - second)
+
+def main():
+  first_number = int(input())
+  second_number = int(input())
+  print(karatsuba(first_number, second_number))
+
+if __name__ == '__main__':
+  main()
