@@ -1,8 +1,8 @@
 import os
 import glob
 
-def read_multiple_files():
-    file_path = os.getcwd() + '/tests/*'
+def read_multiple_files(path='/tests/*'):
+    file_path = os.getcwd() + path
     file_path_length = len(file_path) - 1
 
     paths = glob.glob(file_path)

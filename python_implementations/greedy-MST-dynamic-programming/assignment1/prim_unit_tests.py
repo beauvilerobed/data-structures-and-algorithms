@@ -2,8 +2,8 @@ import unittest
 from prims import prims
 from file_reader import read_multiple_files
 
-
-input_files, output_files, assignment, file_path_length = read_multiple_files()
+prims_test_cases = '/tests2/*'
+input_files, output_files, assignment, file_path_length = read_multiple_files(prims_test_cases)
 
 inputs_outputs = []
 temp = []

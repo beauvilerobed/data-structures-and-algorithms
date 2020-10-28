@@ -6,30 +6,27 @@ class Subset:
     def __init__(self, parent, rank):
         self.parent = parent
         self.rank = rank
-        self.not_parent = False
 
 def find(subsets, node):
-    if subsets[node].parent != node:
-        subsets[node].parent = find(subsets, subsets[node].parent)
-    return subsets[node].parent
+    while subsets[node].parent != node:
+        node = subsets[node].parent
+    return node
 
 
 def union(subsets, u, v):
     u = find(subsets, u)
     v = find(subsets, v)
-    # print("found:", u, v)
+    if u == v:
+        return False    
     if subsets[u].rank > subsets[v].rank:
         subsets[v].parent = u
         return v
-    elif subsets[v].rank > subsets[u].rank:
-        subsets[u].parent = v
-        return u
     else:
-        subsets[v].parent = u
-        subsets[u].rank += 1
-        return v
+        subsets[u].parent = v
+        if subsets[u].rank == subsets[v].rank:
+            subsets[v].rank += 1
+        return u
         
-
 
 def cluster(graph, number_of_nodes, k_cluster):
     edges = []
@@ -44,18 +41,18 @@ def cluster(graph, number_of_nodes, k_cluster):
     clusters = [Subset(i, 0) for i in range(number_of_nodes + 1)]
 
     spacing = []
-    number_of_leaders = len(leaders)
-    while number_of_leaders > k_cluster:
+    number_of_leaders = len(leaders) - 1
+    while number_of_leaders >= k_cluster:
         vertex, edge_value, edge_weight = edges.pop(0)
         leader_to_remove = union(clusters, vertex, edge_value)
-        if leaders[leader_to_remove - 1] != 0:
+        if leader_to_remove and leaders[leader_to_remove - 1] != -1:
             spacing.append(edge_weight)
             number_of_leaders -= 1
-            leaders[leader_to_remove - 1] = 0
+            leaders[leader_to_remove - 1] = -1
     return spacing[-1]
 
 
-def minimum_clusters(vertices, num_of_vertices, spacing=2):
+def largest_clusters(vertices, num_of_vertices, spacing=2):
     leaders = {}
 
     for i, vertex in enumerate(vertices):
@@ -64,25 +61,17 @@ def minimum_clusters(vertices, num_of_vertices, spacing=2):
     leader_board = [i for i in range(num_of_vertices + 1)]
     clusters = [Subset(i, 0) for i in range(num_of_vertices + 1)]
     number_of_leaders = len(leaders)
-    # print(leaders)
     for i in range(1, spacing + 1):
         for vertex in vertices:
             within_spacing = hamming_possibilies(vertex, i)
             for neighber in within_spacing:
-                # print(neighber)
                 if neighber in leaders:
-                    # print(neighber)
-                    # print(leaders[vertex], leaders[neighber])
                     if find(clusters, leaders[vertex]) == find(clusters, leaders[neighber]):
                         continue
-
                     leader_to_remove = union(clusters, leaders[vertex], leaders[neighber])
                     if leader_board[leader_to_remove] != 0:
-                        # print(leader_to_remove)
                         number_of_leaders -= 1
-                        # print("number of leaders:", number_of_leaders)
                         leader_board[leader_to_remove] = 0
-                        # print(leader_board)
     return number_of_leaders
 
 
@@ -105,6 +94,7 @@ def hamming_possibilies(vertex, distance):
         vertices.append(new_vertex)
     
     return vertices
+
 
 def main():
     data = sys.stdin.read()
