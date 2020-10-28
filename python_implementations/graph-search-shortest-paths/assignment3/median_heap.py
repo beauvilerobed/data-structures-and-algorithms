@@ -26,7 +26,7 @@ def median_heap(values):
         
         m_total += -1 * low[0]
     
-    return m_total
+    return m_total % 10000
 
 
 def main():

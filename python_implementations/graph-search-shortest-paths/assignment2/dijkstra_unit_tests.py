@@ -4,8 +4,7 @@ from dijkstra import dijkstra, Node, Graph
 from file_reader import read_multiple_files
 
 input_files, output_files, assignment, file_path_length = read_multiple_files()
-input_files.sort()
-output_files.sort()
+
 inputs_outputs = []
 # TODO: file reading step has a doulble for loop
 for name1, name2 in zip(input_files, output_files):

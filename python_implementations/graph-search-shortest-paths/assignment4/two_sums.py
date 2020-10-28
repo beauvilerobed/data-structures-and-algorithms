@@ -1,25 +1,21 @@
 import sys
 
-def two_sums(nums, targets):
+def two_sums(nums, target):
     hash_it = set(nums)
     count = 0
-    for target in targets:
-        for num in nums:
-            temp = target - num
-            if temp != num and temp in hash_it:
-                count += 1
-                break
+    for num in nums:
+        temp = target - num
+        if temp != num and temp in hash_it:
+            count += 1
+            break
         
     return count
 
-def find_two_sum_total(case, targets, n=1000):
+def find_two_sum_total(case, targets):
     count = 0
-    partition = int(10000/n)
-    for i in range(-n, n):
-        count += two_sums(case, targets[i * partition: (i+1) * partition])
-        print("finished:", i * partition)
+    for i in range(len(targets)):
+        count += two_sums(case, targets[i])
     
-    count += two_sums(case, [targets[10000]])
     return count
 
 def main():
