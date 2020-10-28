@@ -10,13 +10,11 @@ def max_weight_IS(weights, length):
         choice = int()
         if max_weights[i-1] > max_weights[i-2] + weights[i-1]:
             choice = max_weights[i-1]
-            print(i)
         else:
             choice = max_weights[i-2] + weights[i-1]
         max_weights.append(choice)
     
     reconstructed_weights = []
-    print(max_weights)
     i = len(max_weights)
     
     while i >= 0:
@@ -26,7 +24,6 @@ def max_weight_IS(weights, length):
             reconstructed_weights.append(i - 1)
             i = i - 2
 
-    print(reconstructed_weights)
     for val in reconstructed_weights:
         if val in possible_vertices:
             result[possible_vertices[val]] = '1'

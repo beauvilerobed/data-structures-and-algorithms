@@ -18,13 +18,13 @@ def knapsack(values, number_items, knapsack_size):
 def knapsack_fast(values, number_items, knapsack_size):
     a = [0 for _ in range(knapsack_size + 1)]
     b = [0 for _ in range(knapsack_size + 1)]
-    intervals = [i for i in range(0, number_items + 1, 100)]
+    # intervals = [i for i in range(0, number_items + 1, 100)]
     for i in range(number_items):
         weight = values[i][1]
         b[:weight] = a[:weight]
 
-        if i in intervals:
-            print("currently at", i)
+        # if i in intervals:
+            # print("currently at", i)
             
         for x in range(weight, knapsack_size + 1):
             value = values[i][0]

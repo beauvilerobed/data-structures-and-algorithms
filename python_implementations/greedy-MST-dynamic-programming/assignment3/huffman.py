@@ -29,18 +29,24 @@ def compute_depth(weights):
 
         return node
 
-    def find_depth(node):
+    def find_depth_min(node):
         if node.left == None and node.right == None:
             return 0
         
-        return 1 + min(find_depth(node.left), find_depth(node.right))
+        return 1 + min(find_depth_min(node.left), find_depth_min(node.right))
+    
+    def find_depth_max(node):
+        if node.left == None and node.right == None:
+            return 0
+        
+        return 1 + max(find_depth_max(node.left), find_depth_max(node.right))
     
     weights_heap = []
     for i in range(len(weights)):
         node = Node(i)
         heappush(weights_heap, [weights[i], str(node.value), node])
     node = huffman(weights_heap)
-    return find_depth(node)
+    return [find_depth_max(node), find_depth_min(node)]
 
 def main():
     data = sys.stdin.read()
