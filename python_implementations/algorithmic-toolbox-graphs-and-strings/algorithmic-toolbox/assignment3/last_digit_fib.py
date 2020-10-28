@@ -1,5 +1,4 @@
 
-
 def last_digit_of_fib(n):
     if n <= 1:
         return n
