@@ -7,9 +7,9 @@ few times as possible. For simplicity, we assume that when you enter
 the building, you instantly collect the signatures of all tenants that
 are in the building at that time.
 
-**Input**: A sequence of $n \le 10^3$ segments
-$[l_1,r_1],...,[l_n,r_n]$ on a line.
+**Input**: A sequence of n &le; 10<sup>3</sup> segments
+[l<sub>1</sub>, r<sub>1</sub>], ... ,[l<sub>n</sub>, r<sub>n</sub>] on a line.
 
 **Output**: A set of points of minimum size
-such that each segment $[l_i,r_i]$ contains a point,
-i.e., there exists a point $x$ such that $l_i \le x \le r_i$.
+such that each segment [l<sub>i</sub>, r<sub>i</sub>] contains a point,
+i.e., there exists a point x such that l<sub>i</sub> &le; x &le; r<sub>i</sub>.

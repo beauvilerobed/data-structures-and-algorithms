@@ -1,10 +1,10 @@
 # Binary Search
 
-**Input:** A sorted array $K=[k_0, \dotsc, k_{n-1}]$ 
-of $1 \le n \le 3 \cdot 10^4$ distinct integers and
-an array $Q=\{q_0,\dotsc,q_{m-1}\}$ of 
-$1 \le m \le 10^5$ integers.
+**Input:** A sorted array K=[k<sub>0</sub>, ... ,k<sub>n-1</sub>] 
+of 1 &le; n &le; 3 &times; 10<sup>4</sup> distinct integers and
+an array Q &equals; [q<sub>0</sub> , ... , q<sub>m-1</sub>] of 
+1 &le; m &le; 10<sup>5</sup> integers.
 
-**Output:** For all $i$ from $0$ to $m-1$, 
-output an index $0 \le j \le n-1$ such 
-that $k_j=q_i$ or $-1$, if there is no such index.
+**Output:** For all i from 0 to m-1, 
+output an index 0 &le; j &le; n-1 such 
+that k<sub>j</sub> = q<sub>i</sub> or -1, if there is no such index.

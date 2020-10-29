@@ -13,3 +13,10 @@ def binary_search(keys, query):
         return -1
     else:
         return low
+
+if __name__ == '__main__':
+    input_keys = list(map(int, input().split()))[1:]
+    input_queries = list(map(int, input().split()))[1:]
+
+    for q in input_queries:
+        print(binary_search(input_keys, q), end=' ')

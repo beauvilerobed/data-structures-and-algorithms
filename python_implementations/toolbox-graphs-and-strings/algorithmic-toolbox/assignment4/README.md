@@ -1,9 +1,9 @@
 # Greatest Common Divisor
 
 The greatest common divisor 
-$\operatorname{GCD}(a,b)$ of two positive 
-integers $a$ and $b$ is the largest integer $d$ 
-that divides both $a$ and $b$. The solution 
+<b><em>GCD</em></b> of <b><em>a</em></b>  and <b><em>b</em></b> of two positive 
+integers a and b is the largest integer d 
+that divides both a and b. The solution 
 of the Greatest Common Divisor Problem was 
 first described (but not discovered!) by 
 the Greek mathematician Euclid twenty 
@@ -18,8 +18,8 @@ cryptographic algorithms.
 
 # Task
 
-Your goal is to implement Euclid's algorithm for computing $\operatorname{GCD}$. 
+Your goal is to implement Euclid's algorithm for computing <b><em>GCD</em></b> of <b><em>a</em></b>  and <b><em>b</em></b>. 
 
 Implement a function that computes the greatest
 common divisor of two integers
-$1 \le a, b \le 2 \cdot 10^9$.
+1 &le; a, b &le; 2 &times; 10<sup>9</sup>.
