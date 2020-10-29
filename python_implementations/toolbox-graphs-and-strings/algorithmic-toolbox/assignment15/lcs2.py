@@ -13,12 +13,14 @@ def lcs2(first_sequence, second_sequence):
     
     return matrix[nn][mm]
 
-
-if __name__ == '__main__':
+def main():
     n = int(input())
     a = list(map(int, input().split()))
 
     m = int(input())
     b = list(map(int, input().split()))
+    print(m, n)
+    print(lcs2(a, b)) 
 
-    print(lcs2(a, b))
+if __name__ == '__main__':
+    main()

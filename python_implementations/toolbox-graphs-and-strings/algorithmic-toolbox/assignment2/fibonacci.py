@@ -1,5 +1,12 @@
 
 
+def fibonacci_number_naive(n):
+    if n <= 1:
+        return n
+    
+    return fibonacci_number_naive(n - 1) + fibonacci_number_naive(n - 2) 
+
+
 def fibonacci_number(n):
     if n <= 1:
         return n

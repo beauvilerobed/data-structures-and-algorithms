@@ -1,12 +1,6 @@
 import unittest
-from binary_search import binary_search
+from binary_search import binary_search, binary_search_naive
 
-def reference(keys, query):
-    for i in range(len(keys)):
-        if keys[i] == query:
-            return i
-    
-    return -1
 
 class TestBinarySearch(unittest.TestCase):
     def test_small(self):
@@ -16,7 +10,7 @@ class TestBinarySearch(unittest.TestCase):
             ([1, 3, 7, 8, 9, 12, 15], 12)
         ]:
             self.assertEqual(
-                reference(keys, query),
+                binary_search_naive(keys, query),
                 binary_search(keys, query)
             )
     

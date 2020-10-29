@@ -23,5 +23,6 @@ class TestQuickSort(unittest.TestCase):
                 randomized_quick_sort(array, 0, len(array) - 1)
                 self.assertEqual(array, sorted_array)
 
+
 if __name__ == '__main__':
     unittest.main()

@@ -1,12 +1,6 @@
 import unittest
-from majority_element import majority_element
+from majority_element import majority_element, majority_element_naive
 
-def reference(elements):
-    for element in elements:
-        if elements.count(element) > len(elements) / 2:
-            return 1
-    
-    return 0
 
 class TestMajorityElement(unittest.TestCase):
     def test_small(self):
@@ -19,7 +13,7 @@ class TestMajorityElement(unittest.TestCase):
         ]:
             self.assertEqual(
                 majority_element(list(elements)),
-                reference(elements)
+                majority_element_naive(elements)
             )
     
     def test_large(self):
@@ -27,6 +21,7 @@ class TestMajorityElement(unittest.TestCase):
             ([0] * 5000 + [1] * 5000, 0)
         ]:  
             self.assertEqual(majority_element(elements), answer)
+
 
 if __name__ == '__main__':
     unittest.main()

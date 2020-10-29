@@ -1,4 +1,12 @@
 
+
+def last_digit_of_fib_naive(n):
+    if n <= 1:
+        return n
+    
+    return (last_digit_of_fib_naive(n - 1) + last_digit_of_fib_naive(n - 2)) % 10
+    
+
 def last_digit_of_fib(n):
     if n <= 1:
         return n

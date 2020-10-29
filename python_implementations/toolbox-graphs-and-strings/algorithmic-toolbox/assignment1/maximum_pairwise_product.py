@@ -1,4 +1,15 @@
 
+
+def max_pairwise_product_naive(numbers):
+    product = 0
+
+    for i in range(len(numbers)):
+        for j in range(i + 1, len(numbers)):
+            product = max(product, numbers[i] * numbers[j])
+
+    return product
+
+
 def max_pairwise_product(numbers):
     max_index1 = -1
     max_index2 = -1
