@@ -1,5 +1,35 @@
 # python3
 
+
+# Hashing with chains
+
+
+# Task. In this task your goal is to implement a hash table with 
+# lists chaining. You are already given the number of buckets 𝑚 and 
+# the hash function. It is a polynomial hash function
+
+# h(𝑆) = (∑︁ 𝑆[𝑖]𝑥^𝑖 mod 𝑝) mod 𝑚, from 𝑖=0 to 𝑖=|S|-1
+
+# where 𝑆[𝑖] is the ASCII code of the 𝑖-th symbol of 𝑆, 
+# 𝑝 = 1,000,000,007 and 𝑥 = 263. Your program should support 
+# the following kinds of queries:
+
+# ∙ add string — insert string into the table. If there is already 
+# such string in the hash table, then just ignore the query.
+
+# ∙ del string — remove string from the table. If there is no such 
+# string in the hash table, then just ignore the query.
+
+# ∙ find string — output “yes" or “no" (without quotes) depending 
+# on whether the table contains string or not.
+
+# ∙ check 𝑖 — output the content of the 𝑖-th list in the table. 
+# Use spaces to separate the elements of the list. If 𝑖-th list is 
+# empty, output a blank line.
+
+# When inserting a new string into a hash chain, you must insert 
+# it in the beginning of the chain.
+
 class Query:
 
     def __init__(self, query):

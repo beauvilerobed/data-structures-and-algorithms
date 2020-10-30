@@ -1,5 +1,9 @@
 # python3
 
+# Binary tree traversals
+
+# Task. You are given a rooted binary tree. Build and output its in-order, pre-order and post-order traversals.
+
 import sys, threading
 sys.setrecursionlimit(10**6) # max depth of recursion
 threading.stack_size(2**27)  # new thread will get stack of such size

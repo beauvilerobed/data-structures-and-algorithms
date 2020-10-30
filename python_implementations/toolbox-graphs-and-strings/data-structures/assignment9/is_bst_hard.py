@@ -1,5 +1,22 @@
 #!/usr/bin/python3
 
+# Is it a binary search tree? Hard version.
+
+
+# Task. You are given a binary tree with integers as its keys. 
+# You need to test whether it is a correct binary search tree. 
+# Note that there can be duplicate integers in the tree, and this 
+# is allowed. The definition of the binary search tree in such 
+# case is the following: for any node of the tree, if its key 
+# is 𝑥, then for any node in its left subtree its key must be 
+# strictly less than 𝑥, and for any node in its right subtree
+# its key must be greater than or equal to 𝑥. In other words, 
+# smaller elements are to the left, bigger elements are to the right, 
+# and duplicates are always to the right. You need to check whether 
+# the given binary tree structure satisfies this condition. You are 
+# guaranteed that the input contains a valid binary tree. That is, 
+# it is a tree, and each node has at most two children.
+
 import sys, threading
 
 

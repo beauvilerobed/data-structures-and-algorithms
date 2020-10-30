@@ -1,5 +1,20 @@
 # python3
 
+# Parallel processing
+
+# Task. You have a program which is parallelized and uses 𝑛 
+# independent threads to process the given list of 𝑚 jobs. 
+# Threads take jobs in the order they are given in the input. 
+# If there is a free thread, it immediately takes the next job 
+# from the list. If a thread has started processing a job, it 
+# doesn’t interrupt or stop until it finishes processing the 
+# job. If several threads try to take jobs from the list 
+# simultaneously, the thread with smaller index takes the job. 
+# For each job you know exactly how long will it take any thread 
+# to process this job, and this time is the same for all the 
+# threads. You need to determine for each job which thread will 
+# process it and when will it start processing.
+
 from collections import namedtuple
 from queue import PriorityQueue
 

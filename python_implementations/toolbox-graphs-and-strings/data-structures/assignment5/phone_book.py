@@ -1,5 +1,25 @@
 # python3
 
+# Phone book
+
+# Task. In this task your goal is to implement a simple phone book 
+# manager. It should be able to process the following types of 
+# user’s queries:
+
+# add number name. It means that the user adds a person with 
+# name name and phone number number to the phone book. If there 
+# exists a user with such number already, then your manager has 
+# to overwrite the corresponding name.
+
+# del number. It means that the manager should erase a person 
+# with number number from the phone book. If there is no such 
+# person, then it should just ignore the query.
+
+# find number. It means that the user looks for a person with 
+# phone number number. The manager should reply with the 
+# appropriate name, or with string “not found" (without quotes) 
+# if there is no such person in the book.
+
 class Query:
     def __init__(self, query):
         self.type = query[0]

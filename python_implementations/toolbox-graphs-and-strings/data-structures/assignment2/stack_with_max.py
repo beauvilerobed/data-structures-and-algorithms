@@ -1,4 +1,10 @@
 #python3
+
+# Extending stack interface
+
+# Task. Implement a stack supporting the operations 
+# Push(), Pop(), and Max().
+
 import sys
 
 
