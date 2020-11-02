@@ -7,10 +7,19 @@ def gcd_naive(a, b):
 
 
 def gcd(a, b):
+    # iterative approach
+    while b % a != 0:
+        a, b = b, a % b
+    
+    return a
+
+def reference(a, b):
+    # base case
     if b == 0:
         return a
     else:
-        return gcd(b, a % b)
+        # gcd(a, b) = gcd(b, a % b) by euclid's algorithm
+        return reference(b, a % b)
 
 
 if __name__ == '__main__':

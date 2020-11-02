@@ -8,14 +8,14 @@ def fibonacci_number_naive(n):
 
 
 def fibonacci_number(n):
-    if n <= 1:
-        return n
-    
-    previous, current = 0, 1
-    for _ in range(n):
-        previous, current = current, (current + previous)
+    prev = 0 
+    curr = 1
 
-    return previous
+    # base case is taken care of here
+    for _ in range(n):
+        prev, curr = curr, prev + curr
+    
+    return prev
 
 
 def main():

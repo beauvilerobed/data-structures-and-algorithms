@@ -1,7 +1,7 @@
 import unittest
 import math
 from gcd import gcd, gcd_naive
-
+    
 
 class TestGCD(unittest.TestCase):
     def test_small(self):

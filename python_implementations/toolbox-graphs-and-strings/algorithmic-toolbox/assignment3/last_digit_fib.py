@@ -8,14 +8,14 @@ def last_digit_of_fib_naive(n):
     
 
 def last_digit_of_fib(n):
-    if n <= 1:
-        return n
+    prev = 0
+    curr = 1
 
-    previous, current = 0, 1
+    # base case is taken care of here
     for _ in range(n):
-        previous, current = current, (current + previous) % 10
+        prev, curr = curr, (prev + curr) % 10
     
-    return previous
+    return prev
 
 
 def main():

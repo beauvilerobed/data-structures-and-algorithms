@@ -8,7 +8,7 @@ class TestFibonacciNumber(unittest.TestCase):
             self.assertEqual(fibonacci_number(n), fibonacci_number_naive(n))
     
     def test_more(self):
-        for x in range(41):
+        for x in range(36):
             self.assertEqual(fibonacci_number(x), fibonacci_number_naive(x))
             print("passed case", x)
         

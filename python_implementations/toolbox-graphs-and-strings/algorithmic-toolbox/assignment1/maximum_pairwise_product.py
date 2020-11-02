@@ -11,17 +11,24 @@ def max_pairwise_product_naive(numbers):
 
 
 def max_pairwise_product(numbers):
-    max_index1 = -1
-    max_index2 = -1
+    first = -float("inf")
+    second = -float("inf")
+    first_index = int()
+    second_index = int()
+
+    # find the first largest value
     for i in range(len(numbers)):
-        if (max_index1 == -1) | (numbers[i] > numbers[max_index1]):
-            max_index1 = i
+        if numbers[i] > first:
+            first = numbers[i]
+            first_index = i
     
-    for k in range(len(numbers)):
-        if (k != max_index1) & ((max_index2 == -1) | (numbers[k] > numbers[max_index2])):
-            max_index2 = k
-    
-    return numbers[max_index1] * numbers[max_index2]
+    # find the second largest value different from the first
+    for j in range(len(numbers)):
+        if numbers[j] > second and j != first_index:
+            second = numbers[j]
+            second_index = j
+
+    return numbers[first_index] * numbers[second_index]
 
 
 def main():
