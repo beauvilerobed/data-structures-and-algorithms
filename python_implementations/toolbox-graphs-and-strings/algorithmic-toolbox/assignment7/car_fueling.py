@@ -16,9 +16,13 @@ def compute_min_num_of_refills(d, m, stops):
     return num_refill
 
 
-if __name__ == '__main__':
+def main():
     input_d = int(input())
     input_m = int(input())
     input_stops = list(map(int, input().split()))
 
     print(compute_min_num_of_refills(input_d, input_m, input_stops))
+
+
+if __name__ == '__main__':
+    main()
