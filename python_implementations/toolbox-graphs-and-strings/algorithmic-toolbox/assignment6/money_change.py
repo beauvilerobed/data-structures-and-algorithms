@@ -1,19 +1,17 @@
 
 
 def money_change(money):
-    number_of_coins = 0
+    count = 0
+    denom = [10, 5, 1]
     while money > 0:
-        if money >= 10:
-            number_of_coins += (money - money % 10) / 10
-            money = money % 10
-        elif money >= 5:
-            number_of_coins += (money - money % 5) / 5
-            money = money % 5
-        elif money >= 1:
-            number_of_coins += money - money % 1
-            money = money % 1
+        for val in denom:
+            if money >= val:
+                number = (money - money % val) // val
+                count += number
+                money = money - number * val
+                break
     
-    return int(number_of_coins)
+    return count
 
 
 if __name__ == '__main__':

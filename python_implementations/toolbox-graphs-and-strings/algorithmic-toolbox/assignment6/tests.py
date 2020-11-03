@@ -6,6 +6,7 @@ def reference(money):
     return (money // 10) + ((money % 10) // 5) + (money % 5)
 
 
+
 class TestSumOfTwoDigits(unittest.TestCase):
     def test(self):
         for (money, number_of_coins) in [(1, 1), (2, 2), (28, 6)]:
