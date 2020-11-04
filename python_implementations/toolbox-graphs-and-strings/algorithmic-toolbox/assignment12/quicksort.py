@@ -7,6 +7,7 @@ def partition(array, left, right):
     start = left
     finish = left
     for j in range(left + 1, right + 1):
+        # move the pivot x in front of any value that is less that it
         if array[j] < x:
             y = array[j]
             array[j] = array[finish + 1]
@@ -14,6 +15,8 @@ def partition(array, left, right):
             array[start] = y
             start += 1
             finish += 1
+        # if jth value is x then move it to a position next to x
+        # and increment the finish index
         elif array[j] == x:
             array[finish + 1], array[j] = array[j], array[finish + 1]
             finish += 1

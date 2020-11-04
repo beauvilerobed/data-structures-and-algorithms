@@ -1,0 +1,18 @@
+
+	# Create the ways array to 1 plus the amount 
+	# to stop overflow 
+
+
+	# Set the first way to 1 because its 0 and 
+	# there is 1 way to make 0 with 0 coins 
+
+
+	# Go through all of the coins 
+
+		# Make a comparison to each index value 
+		# of ways with the coin value. 
+
+				# Update the ways array 
+
+	# return the value at the Nth position 
+	# of the ways array. 
