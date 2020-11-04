@@ -15,10 +15,14 @@ def compute_optimal_points(segments):
 
     return points
 
-
-if __name__ == '__main__':
+def main():
     n, *data = map(int, stdin.read().split())
     input_segments = list(map(lambda x: Segment(x[0], x[1]), zip(data[::2], data[1::2])))
     output_points = compute_optimal_points(input_segments)
     print(len(output_points))
+    print(n)
     print(*output_points)
+
+
+if __name__ == '__main__':
+    main()
