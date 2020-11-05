@@ -1,41 +1,27 @@
 
 
 def compute_operations(n):
-    all_parents = [None for _ in range(n + 1)]
-    all_min_ops = [0] + [None for _ in range(n)]
+	result = [0, [0, [1]]]
+	
+	for k in range(2, n + 1):
+        # find the min previously compute operation value
+        # of k/2 k/3 (if they exist) and k - 1 dynamically
+		values = result[k - 1]
+		if k % 2 == 0:
+			if result[k // 2][0] < values[0]:
+				values = result[k // 2]
+		
+		if k % 3 == 0:
+			if result[k // 3][0] < values[0]:
+				values = result[k // 3]
 
-    for k in range(1, n + 1):
-        curr_parent = k - 1
-        curr_min_ops = all_min_ops[curr_parent] + 1
+        # then add to result of appropriate value
+		next_value = values[0] + 1
+		next_array = values[1].append(k)				
+		result.append([next_value, next_array])
 
-        if k % 3 == 0:
-            parent = k // 3
-            num_ops = all_min_ops[parent] + 1
-            if num_ops < curr_min_ops:
-                curr_parent, curr_min_ops = parent, num_ops
-
-        if k % 2 == 0:
-            parent = k // 2
-            num_ops = all_min_ops[parent] + 1
-            if num_ops < curr_min_ops:
-                curr_parent, curr_min_ops = parent, num_ops
-
-        if k % 2 == 0:
-            parent = k // 2
-            num_ops = all_min_ops[parent] + 1
-            if num_ops < curr_min_ops:
-                curr_parent, curr_min_ops = parent, num_ops
-        
-        all_parents[k], all_min_ops[k] = curr_parent, curr_min_ops
-
-    numbers = []
-    k = n
-    while k > 0:
-        numbers.append(k)
-        k = all_parents[k]
-    numbers.reverse()
-
-    return numbers
+    
+	return result[-1][1]
 
 
 def main():
