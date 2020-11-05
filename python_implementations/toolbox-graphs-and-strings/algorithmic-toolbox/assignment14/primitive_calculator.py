@@ -17,7 +17,7 @@ def compute_operations(n):
 
         # then add to result of appropriate value
 		next_value = values[0] + 1
-		next_array = values[1].append(k)				
+		next_array = values[1] + [k]				
 		result.append([next_value, next_array])
 
     
