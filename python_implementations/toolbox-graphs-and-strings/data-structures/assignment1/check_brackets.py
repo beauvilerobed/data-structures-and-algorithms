@@ -31,30 +31,41 @@
 
 from collections import namedtuple
 
-Bracket = namedtuple("Bracket", ["char", "position"])
+Mismatch = namedtuple("Mismatch", "letter index")
 
 
-def are_matching(left, right):
-    return (left + right) in ["()", "[]", "{}"]
+def find_mismatch(string):
+    mismatch = pick_mismatch(string)
+    if mismatch.letter == 'S':
+        return 'Success'
 
-
-def find_mismatch(text):
-    opening_brackets_stack = []
-    for i, next in enumerate(text):
-        if next not in "()[]{}":
-            pass
-        elif next in "([{":
-            opening_brackets_stack.append((next,i))
-        else:
-            if len(opening_brackets_stack) == 0:
-                return str(i + 1)
-            top = opening_brackets_stack.pop()[0]
-            if not are_matching(top, next):
-                return str(i + 1)
-    if len(opening_brackets_stack) == 0:
-        return "Success"
     else:
-        return str(opening_brackets_stack[0][1] + 1)
+        return str(mismatch.index)
+
+
+def pick_mismatch(string):
+    para = { '(': ')', '{': '}', '[': ']' }
+    stack = []
+    for i, letter in enumerate(string):
+        mismatch = Mismatch(letter, i + 1)
+        if letter in para:
+            stack.append(mismatch)
+
+        elif letter in para.values():
+            if len(stack) == 0:
+                return mismatch
+            else:
+                temp = stack.pop()
+                
+                if para[temp.letter] != letter:
+                    return mismatch
+
+    if stack:
+        return stack[0]
+
+    else:
+        success = Mismatch('S', None)
+        return success
     
 
 def main():
