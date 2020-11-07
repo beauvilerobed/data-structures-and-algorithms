@@ -1,18 +1,9 @@
 import unittest
 from karatsuba import karatsuba
-import os
-import glob
+from file_reader import generate_paths, generate_tests
 
-test_case_path = os.getcwd() + '/tests/*'
-paths = glob.glob(test_case_path)
-
-cases = []
-for path in paths:
-  with open(path, 'r') as f:
-    lines = f.readlines()
-    number_pair = list(map(int, lines))
-    cases.append(number_pair)
-
+paths = generate_paths()
+cases = generate_tests(paths)
 
 class TestKaratsuba(unittest.TestCase):
   def test_cases(self):
