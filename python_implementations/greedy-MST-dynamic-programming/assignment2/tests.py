@@ -1,68 +1,20 @@
 import unittest
 from clustering import cluster, largest_clusters
-from file_reader import read_multiple_files
+from file_reader import generate_files, generate_inputs_outputs_cluster, generate_inputs_outputs_large_cluster
 
 
-# setting up test cases for clustering problem
-input_files, output_files, assignment, file_path_length = read_multiple_files()
-temp = []
-for name1, name2 in zip(input_files, output_files):
-  if name1[file_path_length + 5:] != name2[file_path_length + 6:]:
-    print("input file", name1[file_path_length + 5:], "is not the same as output file", name2[file_path_length + 6:])
-    break
-  else:
-    case = []
-    with open(name1, 'r') as f:
-        lines = f.readlines()
-        for line in lines:
-            line = list(map(int, line.split()))
-            case.append(line)
+# set up test cases for clustering problem
+input_files, output_files, assignment, file_path_length = generate_files()
+print("finished returning first set of files")
+inputs_outputs = generate_inputs_outputs_cluster(input_files, output_files, assignment, file_path_length)
+print("finished generating first input output files")
 
-    with open(name2, 'r') as f:
-        line = f.readline()
-        data = int(line)
-    
-    temp.append([case, data])
-
-inputs_outputs = []
-for input_output in temp:
-    case = input_output[0]
-    data = input_output[1]
-
-    graph = {}
-    num_of_nodes = case[0][0]
-    for vertex, edge, edge_weight in case[1:]:
-        if vertex in graph:
-            graph[vertex].append([edge, edge_weight])
-        else:
-            graph[vertex] = [[edge, edge_weight]]
-
-    inputs_outputs.append([graph, num_of_nodes, data])
-
-# setting up test cases for larger clustering problem
+# set up test cases for larger clustering problem
 largest_clusters_test_cases = '/tests2/*'
-input_files2, output_files2, assignment2, file_path_length2 = read_multiple_files(largest_clusters_test_cases)
-
-
-temp2 = []
-inputs_outputs2 = []
-for name1, name2 in zip(input_files2, output_files2):
-  if name1[file_path_length + 5:] != name2[file_path_length + 6:]:
-    print("input file", name1[file_path_length + 5:], "is not the same as output file", name2[file_path_length + 6:])
-    break
-  else:
-    case = []
-    with open(name1, 'r') as f:
-        lines = f.readlines()
-        for line in lines[1:]:
-            line = line.replace(" ", "")
-            case.append(line[:-1])
-    with open(name2, 'r') as f:
-        line = f.readline()
-        data = int(line)
-
-    inputs_outputs2.append([case, data])
-
+input_files2, output_files2, assignment2, file_path_length2 = generate_files(largest_clusters_test_cases)
+print("finished returning second set of files")
+inputs_outputs2 = generate_inputs_outputs_large_cluster(input_files2, output_files2, assignment2, file_path_length2)
+print("finished generating second input output files")
 
 class TestCluster(unittest.TestCase):
     def test_cases(self):
