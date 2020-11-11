@@ -1,4 +1,4 @@
-# Topics from the Stanford & UCS Algorithms and Data Stuctures course.
+# Topics from Stanford's & UCS's Algorithms and Data Stuctures course.
 
 Which include:
 
