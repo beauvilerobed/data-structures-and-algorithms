@@ -1,40 +1,11 @@
 import unittest
 from job_queue import assign_jobs, assign_jobs_naive
-import glob
-import os
 import random
+from file_reader import generate_files, generate_test_cases
 
-from collections import namedtuple
 
-AssignedJob = namedtuple("AssignedJob", ["worker", "started_at"])
-
-path = os.getcwd() + "/tests/*"
-files = glob.glob(path)
-files.sort()
-
-solutions = []
-test_cases = []
-
-for name in files:
-    with open(name, "r") as f:
-        if name[-2:] == ".a":
-            lines = f.readlines()
-            temp = []
-            for line in lines:
-                solution_list = list(map(int, line.split()))
-                solution = AssignedJob(solution_list[0], solution_list[1])
-                temp.append(solution)
-            solutions.append(temp)
-        else:
-            lines = f.readlines()
-            temp = []
-            elements = list(map(int, lines[0].split()))
-            temp.append(elements[0])
-            for line in lines[1:]:
-                partial = list(map(int, line.split()))
-                temp.extend(partial)
-            test_cases.append(temp)
-             
+files = generate_files()
+solutions, test_cases = generate_test_cases(files)
 
 class JobQueue(unittest.TestCase):
     def test(self):
