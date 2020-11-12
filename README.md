@@ -26,7 +26,7 @@ Which include:
 * **Data Structures**
     - **Assignment 1**: Check brackets in the code
     - **Assignment 2**: Stack with maximum
-    - **Assignment 3**: Make Heap
+    - **Assignment 3**: Build Heap
     - **Assignment 4**: Parallel Processing
     - **Assignment 5**: Phone Book
     - **Assignment 6**: Chaining Simulation

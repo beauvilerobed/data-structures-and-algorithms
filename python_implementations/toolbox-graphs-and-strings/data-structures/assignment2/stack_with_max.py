@@ -25,7 +25,6 @@ class StackWithMax():
         else:
             self.__stack.append(a)
 
-
     def Pop(self):
         assert(len(self.__stack))
         if len(self.__stack) == 0:
