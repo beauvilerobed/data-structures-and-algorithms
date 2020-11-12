@@ -2,7 +2,7 @@
 
 # Phone book
 
-# Task. In this task your goal is to implement a simple phone book 
+# In this task your goal is to implement a simple phone book 
 # manager. It should be able to process the following types of 
 # user’s queries:
 
@@ -36,21 +36,31 @@ def write_responses(result):
 
 def process_queries(queries):
     result = []
-    # Keep list of all existing (i.e. not deleted yet) contacts.
-    contacts = ['' for _ in range(10 ** 7)]
+    # Keep hash of all existing (i.e. not deleted yet) contacts.
+    contacts = {}
     for cur_query in queries:
         if cur_query.type == 'add':
             # if we already have contact with such number,
             # we should rewrite contact's name
+            response = "add confirmed"
             contacts[cur_query.number] = cur_query.name
+            result.append(response)
+
         elif cur_query.type == 'del':   
-            contacts[cur_query.number] = ''
+            response = "del not possible"
+
+            if cur_query.number in contacts:
+                del contacts[cur_query.number]
+                response = "del confirmed"
+
+            result.append(response)
 
         else:
-            response = contacts[cur_query.number]
-            if contacts[cur_query.number] == '':
-                    response = "not found"
+            response = "not found"
+            if cur_query.number in contacts:
+                response = contacts[cur_query.number]
             result.append(response)
+
     return result
 
 def main():
