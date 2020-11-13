@@ -48,6 +48,7 @@ class QueryProcessor:
         self.bucket_count = bucket_count
         # store all strings in one list
         self.elems = [[] for _ in range(bucket_count)]
+        self.responses = []
 
     def _hash_func(self, s):
         ans = 0
@@ -56,10 +57,12 @@ class QueryProcessor:
         return ans % self.bucket_count
 
     def write_search_result(self, was_found):
-        print('yes' if was_found else 'no')
+        val = 'yes' if was_found else 'no'
+        self.responses.append(val)
 
     def write_chain(self, chain):
-        print(' '.join(chain))
+        val = ' '.join(chain)
+        self.responses.append(val)
 
     def read_query(self):
         return Query(input().split())
