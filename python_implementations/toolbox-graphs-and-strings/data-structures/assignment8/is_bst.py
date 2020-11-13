@@ -26,7 +26,7 @@ def IsBinarySearchTree(tree):
   if len(tree) == 0:
     return True
   result = []
-  # Implement correct algorithm here
+
   def pre_order_traversal(index):
     if index == -1:
       return
