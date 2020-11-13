@@ -6,7 +6,7 @@ files = generate_files()
 trees, solutions = generate_test_case(files)
 
 
-class TestQueryProcessor(unittest.TestCase):    
+class TestTreeOrder(unittest.TestCase):    
     def test_case(self):
         for tree, solution in zip(trees, solutions):
             actual = [
