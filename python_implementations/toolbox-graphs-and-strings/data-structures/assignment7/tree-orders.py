@@ -8,27 +8,39 @@
 
 # example:
 
-#   Input:  
+# Input: 
+
+# Each of these lines contains three integers 
+# key_i, left_i and right_i.
+# 
+# key_i is the key of the i-th 
+# vertex, left_i is the index of the left child of 
+# the i-th vertex, and right_i is the index of the right 
+# child of the i-th vertex. If i doesn’t have left or 
+# right child (or both), the corresponding left_i or right_i 
+# (or both) will be equal to −1. 
+
 #   5
-#   4 1 2 
-#   2 3 4
-#   5 -1 -1 
-#   1 -1 -1 
-#   3 -1 -1
+#   4 1 2                           4
+#   2 3 4                          / \
+#   5 -1 -1           ====>       2   5
+#   1 -1 -1                      / \
+#   3 -1 -1                     1   3
 
 #   Output:
 #   1 2 3 4 5 
 #   4 2 1 3 5 
 #   1 3 2 5 4
 
+
 import sys, threading
 sys.setrecursionlimit(10**6) # max depth of recursion
-threading.stack_size(2**27)  # new thread will get stack of such size
+# threading.stack_size(2**27)  # new thread will get stack of such size
 
 
 class TreeOrders:
-  def read(self):
-    self.n = int(sys.stdin.readline())
+  def read(self, n):
+    self.n = n
     self.key = [0 for i in range(self.n)]
     self.left = [0 for i in range(self.n)]
     self.right = [0 for i in range(self.n)]
@@ -84,13 +96,14 @@ class TreeOrders:
     return self.result
 
 def main():
-	tree = TreeOrders()
-	tree.read()
-	print(" ".join(str(x) for x in tree.inOrder()))
-	print(" ".join(str(x) for x in tree.preOrder()))
-	print(" ".join(str(x) for x in tree.postOrder()))
+  tree = TreeOrders()
+  n = int(input())
+  tree.read(n)
+  print(" ".join(str(x) for x in tree.inOrder()))
+  print(" ".join(str(x) for x in tree.preOrder()))
+  print(" ".join(str(x) for x in tree.postOrder()))
 
-threading.Thread(target=main).start()
+# threading.Thread(target=main).start()
 
 
 if __name__ == '__main__':
