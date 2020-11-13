@@ -4,7 +4,7 @@ from hash_chains import Query
 
 
 def generate_files(path="/tests/*"):
-    path = os.getcwd() + "/tests/*"
+    path = os.getcwd() + path
     files = glob.glob(path)
     files.sort()
     return files

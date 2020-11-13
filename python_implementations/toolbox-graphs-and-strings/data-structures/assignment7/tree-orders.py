@@ -2,7 +2,24 @@
 
 # Binary tree traversals
 
-# Task. You are given a rooted binary tree. Build and output its in-order, pre-order and post-order traversals.
+# Task. You are given a rooted binary tree. 
+# Build and output its in-order, pre-order and 
+# post-order traversals.
+
+# example:
+
+#   Input:  
+#   5
+#   4 1 2 
+#   2 3 4
+#   5 -1 -1 
+#   1 -1 -1 
+#   3 -1 -1
+
+#   Output:
+#   1 2 3 4 5 
+#   4 2 1 3 5 
+#   1 3 2 5 4
 
 import sys, threading
 sys.setrecursionlimit(10**6) # max depth of recursion
