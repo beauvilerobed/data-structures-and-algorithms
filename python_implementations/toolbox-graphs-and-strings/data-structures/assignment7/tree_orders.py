@@ -68,31 +68,31 @@ class TreeOrders:
 
   def preOrder(self):
     self.result = []
-    def in_order_traversal(index):
+    def pre_order_traversal(index):
       if index == -1:
         return
 
       self.result.append(self.key[index])
-      in_order_traversal(self.left[index])
-      in_order_traversal(self.right[index])
+      pre_order_traversal(self.left[index])
+      pre_order_traversal(self.right[index])
 
     index = 0   
-    in_order_traversal(index)
+    pre_order_traversal(index)
 
     return self.result
 
   def postOrder(self):
     self.result = []
-    def in_order_traversal(index):
+    def post_order_traversal(index):
       if index == -1:
         return
 
-      in_order_traversal(self.left[index])
-      in_order_traversal(self.right[index])
+      post_order_traversal(self.left[index])
+      post_order_traversal(self.right[index])
       self.result.append(self.key[index])
 
     index = 0   
-    in_order_traversal(index)
+    post_order_traversal(index)
 
     return self.result
 
