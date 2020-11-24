@@ -1,11 +1,12 @@
 #Uses python3
-import sys
 
 # Finding an Exit from a Maze
 
 # Task. Given an undirected graph and two distinct 
 # vertices 𝑢 and 𝑣, check if there is a path between 
 # 𝑢 and 𝑣.
+
+import sys
 
 
 def reach(adj, x, y):

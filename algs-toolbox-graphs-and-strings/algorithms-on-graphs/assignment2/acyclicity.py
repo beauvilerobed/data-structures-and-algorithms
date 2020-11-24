@@ -1,10 +1,9 @@
-#Uses python3
-import sys
-
-# Checking Consistency of CS Curriculum
+#python3
 
 # Task. Check whether a given directed graph with 𝑛 
 # vertices and 𝑚 edges contains a cycle.
+
+import sys
 
 
 def acyclic(adj):

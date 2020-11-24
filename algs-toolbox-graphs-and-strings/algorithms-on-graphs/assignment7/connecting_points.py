@@ -1,14 +1,15 @@
 #Uses python3
-import sys
-import math
-import heapq
-from collections import defaultdict
 
 # Building Roads to Connect Cities
 
 # Task. Given 𝑛 points on a plane, connect them with 
 # segments of minimum total length such that there is 
 # a path between any two points.
+
+import sys
+import math
+import heapq
+from collections import defaultdict
 
 
 def prims(x, y):

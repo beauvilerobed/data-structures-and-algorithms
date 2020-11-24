@@ -1,6 +1,4 @@
 #Uses python3
-import sys
-import queue
 
 # Detecting Anomalies in Currency Exchange Rates
 
@@ -8,6 +6,9 @@ import queue
 # negative edge weights and with 𝑛 vertices and 𝑚 
 # edges, check whether it contains a cycle of 
 # negative weight.
+
+import sys
+import queue
 
 
 def negative_cycle(adj, cost):

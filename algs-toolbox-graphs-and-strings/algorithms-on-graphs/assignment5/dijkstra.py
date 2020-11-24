@@ -1,7 +1,4 @@
 #Uses python3
-import sys
-import queue
-import heapq
 
 # Computing the Minimum Cost of a Flight
 
@@ -10,6 +7,10 @@ import heapq
 # two vertices 𝑢 and 𝑣, compute the weight of a 
 # shortest path between 𝑢 and 𝑣 (that is, the minimum 
 # total weight of a path from 𝑢 to 𝑣).
+
+import sys
+import queue
+import heapq
 
 
 def distance(adj, cost, s, t):

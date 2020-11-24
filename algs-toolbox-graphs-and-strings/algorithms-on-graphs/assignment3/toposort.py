@@ -1,11 +1,12 @@
 #Uses python3
-import sys
 
 # Determining an Order of Courses
 
 # Task. Compute a topological ordering of a given 
 # directed acyclic graph (DAG) with 𝑛 vertices and 
 # 𝑚 edges.
+
+import sys
 
 
 def dfs(adj, used, order, x):

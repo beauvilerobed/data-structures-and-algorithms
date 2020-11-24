@@ -1,6 +1,4 @@
 #Uses python3
-import sys
-import queue
 
 # Computing the Minimum Number of Flight Segments
 
@@ -8,6 +6,9 @@ import queue
 # 𝑚 edges and two vertices 𝑢 and 𝑣, compute the 
 # length of a shortest path between 𝑢 and 𝑣 (that is, 
 # the minimum number of edges in a path from 𝑢 to 𝑣).
+
+import sys
+import queue
 
 
 def distance(adj, s, t):
