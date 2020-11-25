@@ -10,7 +10,6 @@
 
 import sys
 import queue
-import heapq
 
 
 def distance(adj, cost, s, t):

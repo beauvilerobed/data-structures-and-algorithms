@@ -8,7 +8,6 @@
 # negative weight.
 
 import sys
-import queue
 
 
 def negative_cycle(adj, cost):
