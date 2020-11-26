@@ -8,6 +8,7 @@ def generate_files(path='/tests/*'):
     files.sort()
     return files
 
+
 def generate_test_case(files):
     solution = []
 
@@ -25,5 +26,5 @@ def generate_test_case(files):
                 for line in lines:
                     case = list(map(int, line.split()))
                     test_case.extend(case)
-    
+
     return solution, test_case

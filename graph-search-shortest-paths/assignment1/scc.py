@@ -49,17 +49,18 @@ def find_scc(graph):
             if not node.explored:
                 components.append(depth_first_search(node))
         return components
-        
+
     graph.reverse()
     f = list()
     depth_loop(sorted(graph.nodes.values(),
-                      key=lambda x : x.id,
+                      key=lambda x: x.id,
                       reverse=True))
     finishing_times = list(reversed(copy.copy(f)))
     graph.reverse()
     components = depth_loop(finishing_times)
     components.extend([0]*5)
     return sorted(components, reverse=True)[:5]
+
 
 def main():
     data = sys.stdin.readlines()
@@ -70,12 +71,13 @@ def main():
             graph.nodes[_id] = Node(_id, edges=[connecting_vertex])
         else:
             graph.nodes[_id].edges.append(connecting_vertex)
-            
+
         if connecting_vertex not in graph.nodes:
-            graph.nodes[connecting_vertex] = Node(connecting_vertex, edges=[-_id])
+            graph.nodes[connecting_vertex] =\
+                Node(connecting_vertex, edges=[-_id])
         else:
             graph.nodes[connecting_vertex].edges.append(-_id)
-    
+
     print(find_scc(graph))
 
 

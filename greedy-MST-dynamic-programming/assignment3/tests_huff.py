@@ -4,7 +4,9 @@ from file_reader import generate_files, generate_inputs_outputs_huff
 
 
 input_files, output_files, assignment, file_path_length = generate_files()
-inputs_outputs = generate_inputs_outputs_huff(input_files, output_files, assignment, file_path_length)
+inputs_outputs = generate_inputs_outputs_huff(input_files, output_files,
+                                              assignment, file_path_length)
+
 
 class TestHuffman(unittest.TestCase):
     def test_cases(self):
@@ -17,4 +19,3 @@ class TestHuffman(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
-

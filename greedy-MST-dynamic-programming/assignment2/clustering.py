@@ -2,10 +2,12 @@ import sys
 import itertools
 import copy
 
+
 class Subset:
     def __init__(self, parent, rank):
         self.parent = parent
         self.rank = rank
+
 
 def find(subsets, node):
     while subsets[node].parent != node:
@@ -17,7 +19,7 @@ def union(subsets, u, v):
     u = find(subsets, u)
     v = find(subsets, v)
     if u == v:
-        return False    
+        return False
     if subsets[u].rank > subsets[v].rank:
         subsets[v].parent = u
         return v
@@ -26,7 +28,7 @@ def union(subsets, u, v):
         if subsets[u].rank == subsets[v].rank:
             subsets[v].rank += 1
         return u
-        
+
 
 def cluster(graph, number_of_nodes, k_cluster):
     edges = []
@@ -66,9 +68,11 @@ def largest_clusters(vertices, num_of_vertices, spacing=2):
             within_spacing = hamming_possibilies(vertex, i)
             for neighber in within_spacing:
                 if neighber in leaders:
-                    if find(clusters, leaders[vertex]) == find(clusters, leaders[neighber]):
+                    if find(clusters, leaders[vertex]) ==\
+                       find(clusters, leaders[neighber]):
                         continue
-                    leader_to_remove = union(clusters, leaders[vertex], leaders[neighber])
+                    leader_to_remove =\
+                        union(clusters, leaders[vertex], leaders[neighber])
                     if leader_board[leader_to_remove] != 0:
                         number_of_leaders -= 1
                         leader_board[leader_to_remove] = 0
@@ -92,7 +96,7 @@ def hamming_possibilies(vertex, distance):
             new_vertex[index] = str(switch(bit))
         new_vertex = "".join(new_vertex)
         vertices.append(new_vertex)
-    
+
     return vertices
 
 

@@ -1,5 +1,6 @@
 import sys
 
+
 class Node:
     def __init__(self, value, vertices=None, path_length=None):
         self.value = value
@@ -7,17 +8,17 @@ class Node:
         self.path_length = path_length or float("inf")
         self.visited = False
 
+
 class Graph:
     def __init__(self, vertices=None):
         self.vertices = vertices or []
-    
+
     def print_nodes(self):
         for vertex in self.vertices:
             print("vertex:", vertex.value)
             for vertex in vertex.vertices:
                 print("edges:", vertex[0].value, end=",")
             print(" ")
-
 
 
 def dijkstra(graph):
@@ -31,7 +32,7 @@ def dijkstra(graph):
         minimimize = {}
         chosen_edge = []
         for vertex in graph.vertices:
-            if vertex.visited == True:
+            if vertex.visited is True:
                 for edge in vertex.vertices:
                     if edge[0].value not in used_paths:
                         dijkstra_choice = vertex.path_length + edge[1]
@@ -47,14 +48,14 @@ def dijkstra(graph):
             if vertex_in_graph.value == edge.value:
                 vertex_in_graph.visited = True
                 vertex_in_graph.path_length = minimum
-                computed_shortest_path.add(vertex_in_graph.value)  
+                computed_shortest_path.add(vertex_in_graph.value)
                 break
         n -= 1
 
     values = []
 
     for vertex in graph.vertices:
-        if vertex.value in [7,37,59,82,99,115,133,165,188,197]:
+        if vertex.value in [7, 37, 59, 82, 99, 115, 133, 165, 188, 197]:
             values.append(vertex.path_length)
     return values
 

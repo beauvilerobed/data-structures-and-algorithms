@@ -1,9 +1,11 @@
 # python3
-import sys
 
 # Reconstruct a String from its Burrows–Wheeler Transform
 
 # Task. Reconstruct a string from its Burrows–Wheeler transform
+
+import sys
+
 
 def InverseBWT(bwt):
     n = len(bwt)
@@ -16,20 +18,19 @@ def InverseBWT(bwt):
         else:
             bwt_set[letter] = 1
         bwt_array.append((letter, bwt_set[letter]))
-    
+
     sorted_bwt_array = sorted(bwt_array)
     enum_sorted_bwt_array = {}
     for i in range(n):
         key = sorted_bwt_array[i]
         enum_sorted_bwt_array[key] = i
-    
+
     result = ''
     index = 0
     while len(result) < n - 1:
         result += bwt_array[index][0]
         letter_and_number = (bwt_array[index][0], bwt_array[index][1])
         index = enum_sorted_bwt_array[letter_and_number]
-
 
     return result[::-1] + '$'
 

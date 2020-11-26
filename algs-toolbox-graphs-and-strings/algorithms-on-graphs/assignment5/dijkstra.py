@@ -1,11 +1,11 @@
-#Uses python3
+# python3
 
 # Computing the Minimum Cost of a Flight
 
-# Task. Given an directed graph with positive edge 
-# weights and with 𝑛 vertices and 𝑚 edges as well as 
-# two vertices 𝑢 and 𝑣, compute the weight of a 
-# shortest path between 𝑢 and 𝑣 (that is, the minimum 
+# Task. Given an directed graph with positive edge
+# weights and with 𝑛 vertices and 𝑚 edges as well as
+# two vertices 𝑢 and 𝑣, compute the weight of a
+# shortest path between 𝑢 and 𝑣 (that is, the minimum
 # total weight of a path from 𝑢 to 𝑣).
 
 import sys
@@ -25,7 +25,7 @@ def distance(adj, cost, s, t):
         u = u_pair[1]
         if u == t:
             return dist[u]
-        
+
         for neighbor, weight in zip(adj[u], cost[u]):
             if dist[neighbor] > dist[u] + weight:
                 dist[neighbor] = dist[u] + weight
@@ -39,7 +39,8 @@ def main():
     data = list(map(int, input.split()))
     n, m = data[0:2]
     data = data[2:]
-    edges = list(zip(zip(data[0:(3 * m):3], data[1:(3 * m):3]), data[2:(3 * m):3]))
+    edges = list(zip(zip(data[0:(3 * m):3],
+                         data[1:(3 * m):3]), data[2:(3 * m):3]))
     data = data[3 * m:]
     adj = [[] for _ in range(n)]
     cost = [[] for _ in range(n)]

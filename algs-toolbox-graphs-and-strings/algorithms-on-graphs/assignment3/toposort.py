@@ -1,9 +1,9 @@
-#Uses python3
+# python3
 
 # Determining an Order of Courses
 
-# Task. Compute a topological ordering of a given 
-# directed acyclic graph (DAG) with 𝑛 vertices and 
+# Task. Compute a topological ordering of a given
+# directed acyclic graph (DAG) with 𝑛 vertices and
 # 𝑚 edges.
 
 import sys
@@ -19,13 +19,14 @@ def dfs(adj, used, order, x):
                 dfs(adj, used, order, neigbor)
         order.append(x)
 
+
 def toposort(adj):
     used = [0] * len(adj)
     order = []
     for i in range(len(adj)):
         if used[i] == 0:
             dfs(adj, used, order, i)
-    
+
     order.reverse()
     return order
 
@@ -46,4 +47,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-

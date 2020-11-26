@@ -9,6 +9,7 @@ def read_files(path="/tests/*"):
     files.sort()
     return files
 
+
 def generate_test_cases(files):
     solutions = []
     cases = []
@@ -23,5 +24,5 @@ def generate_test_cases(files):
                 for line in lines:
                     test_case += line.split()[0]
                 cases.append(test_case)
-    
+
     return solutions, cases

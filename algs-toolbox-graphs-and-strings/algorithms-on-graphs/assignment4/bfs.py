@@ -1,10 +1,10 @@
-#Uses python3
+# python3
 
 # Computing the Minimum Number of Flight Segments
 
-# Task. Given an undirected graph with 𝑛 vertices and 
-# 𝑚 edges and two vertices 𝑢 and 𝑣, compute the 
-# length of a shortest path between 𝑢 and 𝑣 (that is, 
+# Task. Given an undirected graph with 𝑛 vertices and
+# 𝑚 edges and two vertices 𝑢 and 𝑣, compute the
+# length of a shortest path between 𝑢 and 𝑣 (that is,
 # the minimum number of edges in a path from 𝑢 to 𝑣).
 
 import sys
@@ -13,7 +13,7 @@ import queue
 
 def distance(adj, s, t):
     num_nodes = len(adj)
-    dist =[num_nodes for _ in range(num_nodes)]
+    dist = [num_nodes for _ in range(num_nodes)]
     dist[s] = 0
     q = queue.Queue()
     q.put(s)

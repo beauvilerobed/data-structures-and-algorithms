@@ -2,6 +2,7 @@ import os
 import glob
 from dijkstra import Node, Graph
 
+
 def generate_files(path='/tests/*'):
     file_path = os.getcwd() + path
     file_path_length = len(file_path) - 1
@@ -25,12 +26,14 @@ def generate_files(path='/tests/*'):
     return input_files, output_files, assignment, file_path_length
 
 
-def generate_inputs_outputs(input_files, output_files, assignment, file_path_length):
+def generate_inputs_outputs(input_files, output_files,
+                            assignment, file_path_length):
     inputs_outputs = []
     # TODO: file reading step has nested for loops try to reduce runtime
     for name1, name2 in zip(input_files, output_files):
-        if name1[file_path_length + 5:] != name2[file_path_length + 6:]:
-            print("input file", name1[file_path_length + 5:], "is not the same as output file", name2[file_path_length + 6:])
+        if name1[file_path_length+5:] != name2[file_path_length+6:]:
+            print("input file", name1[file_path_length+5:],
+                  "is not the same as output file", name2[file_path_length+6:])
             break
         else:
             graph = Graph()

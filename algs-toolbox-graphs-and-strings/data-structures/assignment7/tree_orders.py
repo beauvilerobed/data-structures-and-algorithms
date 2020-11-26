@@ -2,23 +2,23 @@
 
 # Binary tree traversals
 
-# Task. You are given a rooted binary tree. 
-# Build and output its in-order, pre-order and 
+# Task. You are given a rooted binary tree.
+# Build and output its in-order, pre-order and
 # post-order traversals.
 
 # example:
 
-# Input: 
+# Input:
 
-# Each of these lines contains three integers 
+# Each of these lines contains three integers
 # key_i, left_i and right_i.
-# 
-# key_i is the key of the i-th 
-# vertex, left_i is the index of the left child of 
-# the i-th vertex, and right_i is the index of the right 
-# child of the i-th vertex. If i doesn’t have left or 
-# right child (or both), the corresponding left_i or right_i 
-# (or both) will be equal to −1. 
+
+# key_i is the key of the i-th
+# vertex, left_i is the index of the left child of
+# the i-th vertex, and right_i is the index of the right
+# child of the i-th vertex. If i doesn’t have left or
+# right child (or both), the corresponding left_i or right_i
+# (or both) will be equal to −1.
 
 #   5
 #   4 1 2                           4
@@ -28,82 +28,88 @@
 #   3 -1 -1                     1   3
 
 #   Output:
-#   1 2 3 4 5 
-#   4 2 1 3 5 
+#   1 2 3 4 5
+#   4 2 1 3 5
 #   1 3 2 5 4
 
 
-import sys, threading
-sys.setrecursionlimit(10**6) # max depth of recursion
+import sys
+import threading
+
+
+sys.setrecursionlimit(10**6)  # max depth of recursion
 
 
 class TreeOrders:
-  def read(self, n, key=None, left=None, right=None):
-    self.n = n
-    self.key = key or [0 for i in range(self.n)]
-    self.left = left or [0 for i in range(self.n)]
-    self.right = right or [0 for i in range(self.n)]
-    if not key:
-      for i in range(self.n):
-        [a, b, c] = map(int, sys.stdin.readline().split())
-        self.key[i] = a
-        self.left[i] = b
-        self.right[i] = c
+    def read(self, n, key=None, left=None, right=None):
+        self.n = n
+        self.key = key or [0 for i in range(self.n)]
+        self.left = left or [0 for i in range(self.n)]
+        self.right = right or [0 for i in range(self.n)]
+        if not key:
+            for i in range(self.n):
+                [a, b, c] = map(int, sys.stdin.readline().split())
+                self.key[i] = a
+                self.left[i] = b
+                self.right[i] = c
 
-  def inOrder(self):
-    self.result = []
-    def in_order_traversal(index):
-      if index == -1:
-        return
+    def inOrder(self):
+        self.result = []
 
-      in_order_traversal(self.left[index])
-      self.result.append(self.key[index])
-      in_order_traversal(self.right[index])
+        def in_order_traversal(index):
+            if index == -1:
+                return
 
-    index = 0   
-    in_order_traversal(index)
+            in_order_traversal(self.left[index])
+            self.result.append(self.key[index])
+            in_order_traversal(self.right[index])
 
-    return self.result
+        index = 0
+        in_order_traversal(index)
 
-  def preOrder(self):
-    self.result = []
-    def pre_order_traversal(index):
-      if index == -1:
-        return
+        return self.result
 
-      self.result.append(self.key[index])
-      pre_order_traversal(self.left[index])
-      pre_order_traversal(self.right[index])
+    def preOrder(self):
+        self.result = []
 
-    index = 0   
-    pre_order_traversal(index)
+        def pre_order_traversal(index):
+            if index == -1:
+                return
 
-    return self.result
+            self.result.append(self.key[index])
+            pre_order_traversal(self.left[index])
+            pre_order_traversal(self.right[index])
 
-  def postOrder(self):
-    self.result = []
-    def post_order_traversal(index):
-      if index == -1:
-        return
+        index = 0
+        pre_order_traversal(index)
 
-      post_order_traversal(self.left[index])
-      post_order_traversal(self.right[index])
-      self.result.append(self.key[index])
+        return self.result
 
-    index = 0   
-    post_order_traversal(index)
+    def postOrder(self):
+        self.result = []
 
-    return self.result
+        def post_order_traversal(index):
+            if index == -1:
+                return
+
+            post_order_traversal(self.left[index])
+            post_order_traversal(self.right[index])
+            self.result.append(self.key[index])
+
+        index = 0
+        post_order_traversal(index)
+
+        return self.result
+
 
 def main():
-  tree = TreeOrders()
-  n = int(input())
-  tree.read(n)
-  print(" ".join(str(x) for x in tree.inOrder()))
-  print(" ".join(str(x) for x in tree.preOrder()))
-  print(" ".join(str(x) for x in tree.postOrder()))
+    tree = TreeOrders()
+    n = int(input())
+    tree.read(n)
+    print(" ".join(str(x) for x in tree.inOrder()))
+    print(" ".join(str(x) for x in tree.preOrder()))
+    print(" ".join(str(x) for x in tree.postOrder()))
 
 
 if __name__ == '__main__':
-  main()
-  
+    main()

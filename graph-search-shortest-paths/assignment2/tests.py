@@ -4,7 +4,8 @@ from dijkstra import dijkstra, Node, Graph
 from file_reader import generate_files, generate_inputs_outputs
 
 input_files, output_files, assignment, file_path_length = generate_files()
-inputs_outputs = generate_inputs_outputs(input_files, output_files, assignment, file_path_length)
+inputs_outputs = generate_inputs_outputs(input_files, output_files,
+                                         assignment, file_path_length)
 
 
 class TestDijkstra(unittest.TestCase):

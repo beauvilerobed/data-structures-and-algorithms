@@ -9,6 +9,7 @@ def generate_files(path="/tests/*"):
     files.sort()
     return files
 
+
 def generate_test_case(files):
     solutions = []
     trees = []
@@ -42,6 +43,5 @@ def generate_test_case(files):
 
         tree.read(n, key, left, right)
         trees[i] = tree
-
 
     return trees, solutions

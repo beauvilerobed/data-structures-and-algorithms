@@ -5,6 +5,7 @@ from collections import namedtuple
 
 AssignedJob = namedtuple("AssignedJob", ["worker", "started_at"])
 
+
 def generate_files(path="/tests/*"):
     path = os.getcwd() + path
     files = glob.glob(path)
@@ -35,5 +36,5 @@ def generate_test_cases(files):
                     partial = list(map(int, line.split()))
                     temp.extend(partial)
                 test_cases.append(temp)
-    
+
     return solutions, test_cases

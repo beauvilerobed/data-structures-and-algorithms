@@ -1,9 +1,9 @@
-#Uses python3
+# python3
 
 # Finding an Exit from a Maze
 
-# Task. Given an undirected graph and two distinct 
-# vertices 𝑢 and 𝑣, check if there is a path between 
+# Task. Given an undirected graph and two distinct
+# vertices 𝑢 and 𝑣, check if there is a path between
 # 𝑢 and 𝑣.
 
 import sys
@@ -36,7 +36,7 @@ def main():
     for (a, b) in edges:
         adj[a - 1].append(b - 1)
         adj[b - 1].append(a - 1)
-    print(reach(adj, x, y)) 
+    print(reach(adj, x, y))
 
 
 if __name__ == '__main__':

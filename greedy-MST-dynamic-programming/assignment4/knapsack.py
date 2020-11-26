@@ -1,6 +1,7 @@
 import sys
 import copy
 
+
 def knapsack(values, number_items, knapsack_size):
     a = [[0 for _ in range(knapsack_size + 1)] for _ in range(number_items)]
 
@@ -12,8 +13,9 @@ def knapsack(values, number_items, knapsack_size):
                 a[i][x] = a[i-1][x]
             else:
                 a[i][x] = max(a[i-1][x], a[i-1][x - weight] + value)
-    
+
     return a[number_items-1][knapsack_size]
+
 
 def knapsack_fast(values, number_items, knapsack_size):
     a = [0 for _ in range(knapsack_size + 1)]
@@ -23,9 +25,6 @@ def knapsack_fast(values, number_items, knapsack_size):
         weight = values[i][1]
         b[:weight] = a[:weight]
 
-        # if i in intervals:
-            # print("currently at", i)
-            
         for x in range(weight, knapsack_size + 1):
             value = values[i][0]
             not_added = a[x]
@@ -33,8 +32,9 @@ def knapsack_fast(values, number_items, knapsack_size):
             if added > not_added:
                 b[x] = added
         a = copy.copy(b)
-    
+
     return a[-1]
+
 
 def main():
     data = sys.stdin.read()
@@ -47,8 +47,9 @@ def main():
         int_values = list(map(int, values.split()))
         values.append(int_values)
 
-    print("using knapsack we get:", knapsack(values, number_items, knapsack_size))
-    print("using knapsack fast we get:", knapsack_fast(values, number_items, knapsack_size))
+    print("knapsack:", knapsack(values, number_items, knapsack_size))
+    print("knapsack fast:", knapsack_fast(values, number_items, knapsack_size))
+
 
 if __name__ == '__main__':
     main()

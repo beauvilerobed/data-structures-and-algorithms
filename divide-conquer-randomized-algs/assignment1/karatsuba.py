@@ -1,30 +1,31 @@
-
 def karatsuba(strnum1, strnum2):
-  num1 = int(strnum1)
-  num2 = int(strnum2)
+    num1 = int(strnum1)
+    num2 = int(strnum2)
 
-  if num1 < 10 or num2 < 10:
-    return num1 * num2
+    if num1 < 10 or num2 < 10:
+        return num1 * num2
 
-  maxlen = max(len(str(num1)), len(str(num2))) // 2
-  base = 10 ** maxlen
+    maxlen = max(len(str(num1)), len(str(num2))) // 2
+    base = 10 ** maxlen
 
-  def decompose(num):
-    return num // base, num % base
-  
-  a, b = decompose(num1)
-  c, d = decompose(num2)
+    def decompose(num):
+        return num // base, num % base
 
-  first = karatsuba(a ,c)
-  second = karatsuba(b, d)
-  third = karatsuba(a + b, c + d)
+    a, b = decompose(num1)
+    c, d = decompose(num2)
 
-  return first * (base ** 2) + second + base * (third - first - second)
+    first = karatsuba(a, c)
+    second = karatsuba(b, d)
+    third = karatsuba(a + b, c + d)
+
+    return first * (base ** 2) + second + base * (third - first - second)
+
 
 def main():
-  first_number = int(input())
-  second_number = int(input())
-  print(karatsuba(first_number, second_number))
+    first_number = int(input())
+    second_number = int(input())
+    print(karatsuba(first_number, second_number))
+
 
 if __name__ == '__main__':
-  main()
+    main()

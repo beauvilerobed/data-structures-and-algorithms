@@ -5,6 +5,7 @@ from file_reader import read_files, generate_test_cases
 files = read_files()
 solutions, cases = generate_test_cases(files)
 
+
 class CheckBrackets(unittest.TestCase):
     def test(self):
         for i in range(len(cases)):

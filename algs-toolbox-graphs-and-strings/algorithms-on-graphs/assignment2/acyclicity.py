@@ -1,6 +1,6 @@
-#python3
+# python3
 
-# Task. Check whether a given directed graph with 𝑛 
+# Task. Check whether a given directed graph with 𝑛
 # vertices and 𝑚 edges contains a cycle.
 
 import sys
@@ -18,7 +18,7 @@ def acyclic(adj):
             if not visited[neighbor]:
                 explore(neighbor, nodes)
                 nodes.pop()
-            
+
     result = [0]
     visited = [False for _ in range(len(adj))]
 

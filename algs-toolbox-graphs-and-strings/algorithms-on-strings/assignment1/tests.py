@@ -27,7 +27,8 @@ class BuildTrie(unittest.TestCase):
             result = []
             for node in tree:
                 for c in tree[node]:
-                    result.append(str(node) + "->" + str(tree[node][c]) + ":" + str(c))
+                    result.append(str(node) + "->" +
+                                  str(tree[node][c]) + ":" + str(c))
             result.sort()
             solution.sort()
             self.assertEqual(result, solution)

@@ -8,6 +8,7 @@ def generate_paths(path='/tests/*'):
 
     return paths
 
+
 def generate_tests(paths):
     cases = []
     for path in paths:
@@ -15,5 +16,5 @@ def generate_tests(paths):
             lines = f.readlines()
             number_pair = list(map(int, lines))
             cases.append(number_pair)
-    
+
     return cases

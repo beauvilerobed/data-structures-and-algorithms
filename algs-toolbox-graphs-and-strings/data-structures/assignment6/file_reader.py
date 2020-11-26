@@ -9,6 +9,7 @@ def generate_files(path="/tests/*"):
     files.sort()
     return files
 
+
 def generate_test_case(files):
     solution = []
     info = []

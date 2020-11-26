@@ -7,7 +7,7 @@ files = generate_files()
 info, solution = generate_test_case(files)
 
 
-class TestQueryProcessor(unittest.TestCase):    
+class TestQueryProcessor(unittest.TestCase):
     def test_case(self):
         bucket_count = info[0]
         proc = QueryProcessor(bucket_count)

@@ -3,11 +3,13 @@ from heapq import heappush, heappop
 
 sys.setrecursionlimit(100000)
 
+
 class Node:
     def __init__(self, value):
         self.value = value
         self.right = None
         self.left = None
+
 
 def compute_depth(weights):
     def huffman(weights_heap):
@@ -30,17 +32,17 @@ def compute_depth(weights):
         return node
 
     def find_depth_min(node):
-        if node.left == None and node.right == None:
+        if node.left is None and node.right is None:
             return 0
-        
+
         return 1 + min(find_depth_min(node.left), find_depth_min(node.right))
-    
+
     def find_depth_max(node):
-        if node.left == None and node.right == None:
+        if node.left is None and node.right is None:
             return 0
-        
+
         return 1 + max(find_depth_max(node.left), find_depth_max(node.right))
-    
+
     weights_heap = []
     for i in range(len(weights)):
         node = Node(i)
@@ -48,10 +50,12 @@ def compute_depth(weights):
     node = huffman(weights_heap)
     return [find_depth_max(node), find_depth_min(node)]
 
+
 def main():
     data = sys.stdin.read()
     data_set = list(map(int, data.split()))
     print(compute_depth(data_set[1:]))
+
 
 if __name__ == '__main__':
     main()

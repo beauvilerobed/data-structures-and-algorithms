@@ -1,6 +1,7 @@
 import os
 import glob
 
+
 def generate_files(path='/tests/*'):
     file_path = os.getcwd() + path
     file_path_length = len(file_path) - 1
@@ -23,9 +24,12 @@ def generate_files(path='/tests/*'):
 
     return input_files, output_files, assignment, file_path_length
 
-def generate_inputs_outputs_prim(input_files, output_files, assignment, file_path_length):
 
-    temp = generate_temp_cases(input_files, output_files, assignment, file_path_length)
+def generate_inputs_outputs_prim(input_files, output_files,
+                                 assignment, file_path_length):
+
+    temp = generate_temp_cases(input_files, output_files,
+                               assignment, file_path_length)
 
     inputs_outputs = []
     for input_output in temp:
@@ -50,11 +54,14 @@ def generate_inputs_outputs_prim(input_files, output_files, assignment, file_pat
 
     return inputs_outputs
 
-def generate_temp_cases(input_files, output_files, assignment, file_path_length):
+
+def generate_temp_cases(input_files, output_files,
+                        assignment, file_path_length):
     temp = []
     for name1, name2 in zip(input_files, output_files):
         if name1[file_path_length + 5:] != name2[file_path_length + 6:]:
-            print("input file", name1[file_path_length + 5:], "is not the same as output file", name2[file_path_length + 6:])
+            print("input file", name1[file_path_length+5:],
+                  "is not the same as output file", name2[file_path_length+6:])
             break
         else:
             case = []
@@ -70,11 +77,14 @@ def generate_temp_cases(input_files, output_files, assignment, file_path_length)
             temp.append([case, data])
     return temp
 
-def generate_inputs_outputs_jobs(input_files, output_files, assignment, file_path_length):
+
+def generate_inputs_outputs_jobs(input_files, output_files,
+                                 assignment, file_path_length):
     inputs_outputs = []
     for name1, name2 in zip(input_files, output_files):
         if name1[file_path_length + 5:] != name2[file_path_length + 6:]:
-            print("input file", name1[file_path_length + 5:], "is not the same as output file", name2[file_path_length + 6:])
+            print("input file", name1[file_path_length+5:],
+                  "is not the same as output file", name2[file_path_length+6:])
             break
         else:
             case = []
@@ -88,5 +98,5 @@ def generate_inputs_outputs_jobs(input_files, output_files, assignment, file_pat
                 data = list(map(int, lines))
 
             inputs_outputs.append([case, data])
-    
+
     return inputs_outputs

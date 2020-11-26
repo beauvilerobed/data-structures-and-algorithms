@@ -1,8 +1,8 @@
-#python3
+# python3
 
 # Extending stack interface
 
-# Task. Implement a stack supporting the operations 
+# Task. Implement a stack supporting the operations
 # Push(), Pop(), and Max().
 
 import sys
@@ -17,7 +17,7 @@ class StackWithMax():
         if len(self.__stack) == 0:
             self.__stack.append(a)
             self.maximum = a
-        
+
         elif a > self.maximum:
             temp = 2 * a - self.maximum
             self.__stack.append(temp)

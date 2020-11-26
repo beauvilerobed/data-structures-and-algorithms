@@ -2,23 +2,24 @@
 
 # Parallel processing
 
-# Task. You have a program which is parallelized and uses 𝑛 
-# independent threads to process the given list of 𝑚 jobs. 
-# Threads take jobs in the order they are given in the input. 
-# If there is a free thread, it immediately takes the next job 
-# from the list. If a thread has started processing a job, it 
-# doesn’t interrupt or stop until it finishes processing the 
-# job. If several threads try to take jobs from the list 
-# simultaneously, the thread with smaller index takes the job. 
-# For each job you know exactly how long will it take any thread 
-# to process this job, and this time is the same for all the 
-# threads. You need to determine for each job which thread will 
+# Task. You have a program which is parallelized and uses 𝑛
+# independent threads to process the given list of 𝑚 jobs.
+# Threads take jobs in the order they are given in the input.
+# If there is a free thread, it immediately takes the next job
+# from the list. If a thread has started processing a job, it
+# doesn’t interrupt or stop until it finishes processing the
+# job. If several threads try to take jobs from the list
+# simultaneously, the thread with smaller index takes the job.
+# For each job you know exactly how long will it take any thread
+# to process this job, and this time is the same for all the
+# threads. You need to determine for each job which thread will
 # process it and when will it start processing.
 
 from collections import namedtuple
 from queue import PriorityQueue
 
 AssignedJob = namedtuple("AssignedJob", ["worker", "started_at"])
+
 
 def assign_jobs_naive(n_workers, jobs):
     result = []
@@ -29,6 +30,7 @@ def assign_jobs_naive(n_workers, jobs):
         next_free_time[next_worker] += job
 
     return result
+
 
 def assign_jobs(n_workers, jobs):
 
@@ -44,14 +46,14 @@ def assign_jobs(n_workers, jobs):
         for i in range(n_workers):
             job_queue.put([jobs[i], i])
             tasks.append(AssignedJob(i, 0))
-    
+
         for i in range(n_workers, len_jobs):
             temp = job_queue.get()
             time = temp[0]
             thread_name = temp[1]
             tasks.append(AssignedJob(thread_name, time))
             job_queue.put([time+jobs[i], thread_name])
-        
+
     return tasks
 
 

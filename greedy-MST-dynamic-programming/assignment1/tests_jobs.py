@@ -4,7 +4,9 @@ from file_reader import generate_files, generate_inputs_outputs_jobs
 
 
 input_files, output_files, assignment, file_path_length = generate_files()
-inputs_outputs = generate_inputs_outputs_jobs(input_files, output_files, assignment, file_path_length)
+inputs_outputs = generate_inputs_outputs_jobs(input_files, output_files,
+                                              assignment, file_path_length)
+
 
 class TestJobs(unittest.TestCase):
     def test_jobs_difference(self):
@@ -15,6 +17,7 @@ class TestJobs(unittest.TestCase):
             self.assertEqual([result, result_ratio], output_value)
             print("passed case:", count)
             count += 1
+
 
 if __name__ == '__main__':
     unittest.main()

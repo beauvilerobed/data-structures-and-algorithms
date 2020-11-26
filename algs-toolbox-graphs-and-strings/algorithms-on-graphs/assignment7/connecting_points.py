@@ -1,9 +1,9 @@
-#Uses python3
+# python3
 
 # Building Roads to Connect Cities
 
-# Task. Given 𝑛 points on a plane, connect them with 
-# segments of minimum total length such that there is 
+# Task. Given 𝑛 points on a plane, connect them with
+# segments of minimum total length such that there is
 # a path between any two points.
 
 import sys
@@ -19,7 +19,7 @@ def prims(x, y):
     cost[0] = 0
     q = []
     for i in range(nodes_len):
-        heapq.heappush(q, [cost[i], i , False])
+        heapq.heappush(q, [cost[i], i, False])
 
     while q:
         v_pair = heapq.heappop(q)
@@ -29,7 +29,7 @@ def prims(x, y):
             if [cost[i], i] in q and cost[i] > distance_of_points:
                 cost[i] = distance_of_points
                 heapq.heappush(q, [cost[i], i])
-    result = sum(cost)       
+    result = sum(cost)
     return result
 
 
@@ -45,7 +45,7 @@ class Graph:
         if parent[i] == i:
             return i
         return self.find(parent, parent[i])
-    
+
     def union(self, parent, rank, x, y):
         xroot = self.find(parent, x)
         yroot = self.find(parent, y)
@@ -57,7 +57,7 @@ class Graph:
         else:
             parent[yroot] = xroot
             rank[xroot] += 1
-        
+
 
 def kruskal(graph):
     result = []
@@ -72,9 +72,9 @@ def kruskal(graph):
     for node in range(graph.V):
         parent.append(node)
         rank.append(0)
-    
+
     while e < graph.V - 1:
-        u ,v ,w = graph.graph[i]
+        u, v, w = graph.graph[i]
         i += 1
         x = graph.find(parent, u)
         y = graph.find(parent, v)
@@ -95,13 +95,15 @@ def main():
     n = data[0]
     x = data[1::2]
     y = data[2::2]
-    vertices = list(zip(x,y))
+    vertices = list(zip(x, y))
     edges = []
     for i in range(len(vertices)):
         for j in range(len(vertices)):
             if i != j:
-                edges.append([i, j, math.sqrt((vertices[i][0] - vertices[j][0])**2 + (vertices[i][1] - vertices[j][1])**2)])
-    
+                edges.append([i, j, math.sqrt((vertices[i][0] -
+                              vertices[j][0])**2 +
+                              (vertices[i][1] - vertices[j][1])**2)])
+
     graph = Graph(len(vertices))
     graph.graph = [edge for edge in edges]
 

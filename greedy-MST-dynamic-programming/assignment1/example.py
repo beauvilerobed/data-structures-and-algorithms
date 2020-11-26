@@ -1,6 +1,8 @@
 from heapq import heapify, heappush, heappop
 
 # checking if heapify is needed and how heappush handles arrays
+
+
 def example():
     heap = []
     heappush(heap, [1, 0])
@@ -11,7 +13,7 @@ def example():
     heappush(heap, [-199, 1])
     for _ in range(len(heap)):
         print(heappop(heap))
-    
+
 
 if __name__ == '__main__':
     example()

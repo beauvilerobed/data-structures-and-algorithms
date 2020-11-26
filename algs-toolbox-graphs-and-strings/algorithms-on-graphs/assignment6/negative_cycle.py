@@ -1,10 +1,10 @@
-#Uses python3
+# python3
 
 # Detecting Anomalies in Currency Exchange Rates
 
-# Task. Given an directed graph with possibly 
-# negative edge weights and with 𝑛 vertices and 𝑚 
-# edges, check whether it contains a cycle of 
+# Task. Given an directed graph with possibly
+# negative edge weights and with 𝑛 vertices and 𝑚
+# edges, check whether it contains a cycle of
 # negative weight.
 
 import sys
@@ -23,7 +23,7 @@ def negative_cycle(adj, cost):
             for neighbor, weight in zip(adj[i], cost[i]):
                 if dist[neighbor] > dist[i] + weight:
                     dist[neighbor] = dist[i] + weight
-                    prev[neighbor] = i                   
+                    prev[neighbor] = i
     return 0
 
 
@@ -32,7 +32,8 @@ def main():
     data = list(map(int, input.split()))
     n, m = data[0:2]
     data = data[2:]
-    edges = list(zip(zip(data[0:(3 * m):3], data[1:(3 * m):3]), data[2:(3 * m):3]))
+    edges = list(zip(zip(data[0:(3 * m):3],
+                         data[1:(3 * m):3]), data[2:(3 * m):3]))
     data = data[3 * m:]
     adj = [[] for _ in range(n)]
     cost = [[] for _ in range(n)]

@@ -1,5 +1,4 @@
-#Uses python3
-import sys
+# python3
 
 # Return the trie built from patterns
 # in the form of a dictionary of dictionaries,
@@ -9,6 +8,8 @@ import sys
 # contains all the trie edges outgoing from the corresponding
 # node, and the keys are the letters on those edges, and the
 # values are the node IDs to which these edges lead.
+
+import sys
 
 
 def build_trie(patterns):
@@ -26,7 +27,6 @@ def build_trie(patterns):
                 current_node[current_symbol] = count
                 current_node = tree[count]
                 count += 1
-                
 
     return tree
 
