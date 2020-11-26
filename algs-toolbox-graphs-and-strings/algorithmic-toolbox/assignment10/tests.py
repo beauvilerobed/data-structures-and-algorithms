@@ -13,11 +13,11 @@ class TestBinarySearch(unittest.TestCase):
                 binary_search_naive(keys, query),
                 binary_search(keys, query)
             )
-    
+
     def test_large(self):
         for (keys, query, answer) in [
             (list(range(10 ** 4)), 10 ** 4, -1),
-            (list(range(10 ** 4)), 10 **4 - 1, 10 ** 4 - 1),
+            (list(range(10 ** 4)), 10 ** 4 - 1, 10 ** 4 - 1),
             (list(range(10 ** 4)), 239, 239),
         ]:
             self.assertEqual(binary_search(keys, query), answer)

@@ -4,7 +4,7 @@ from car_fueling import compute_min_num_of_refills
 
 class CarFueling(unittest.TestCase):
     def test(self):
-        for (d, m, stops, answer) in [             
+        for (d, m, stops, answer) in [
             (950, 400, [200, 375, 550, 750], 2),
             (10, 3, [1, 2, 5, 9], -1),
             (200, 250, [100, 150], 0),

@@ -14,7 +14,7 @@ class arithmeticExpression(unittest.TestCase):
             ("1-1", 0),
             ("7", 7),
             ("1+2+3+4+5+6+7+8+9", 45)
-        ):  
+        ):
             self.assertEqual(find_maximum_value(s), answer)
 
 

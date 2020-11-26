@@ -1,5 +1,3 @@
-
-
 import operator
 
 
@@ -18,9 +16,10 @@ def find_maximum_value(data_set):
             operator_signs.append(ops[val])
         else:
             nums.append(int(val))
-    
-    # We must keep track of both the minimum and the maximum because the maximal value
-    # of an expression may result from multiplying two negative subexpressions.
+
+    # We must keep track of both the minimum and the maximum
+    # because the maximal value of an expression may result
+    # from multiplying two negative subexpressions.
     min_matrix = [[0 for _ in range(len(nums))] for _ in range(len(nums))]
     max_matrix = [[0 for _ in range(len(nums))] for _ in range(len(nums))]
 
@@ -28,12 +27,15 @@ def find_maximum_value(data_set):
     for i in range(len(nums)):
         min_matrix[i][i] = nums[i]
         max_matrix[i][i] = nums[i]
-    
+
     for s in range(1, len(nums)):
         for i in range(len(nums) - s):
             j = i + s
-            min_matrix[i][j], max_matrix[i][j] = min_max(min_matrix, max_matrix, operator_signs, i, j)
-
+            min_matrix[i][j], max_matrix[i][j] = min_max(min_matrix,
+                                                         max_matrix,
+                                                         operator_signs,
+                                                         i,
+                                                         j)
 
     return max_matrix[0][len(nums) - 1]
 
@@ -50,7 +52,7 @@ def min_max(min_matrix, max_matrix, operator_signs, i, j):
         d = operator_signs[k](max_matrix[i][k], max_matrix[k + 1][j])
         minimum = min(minimum, a, b, c, d)
         maximum = max(maximum, a, b, c, d)
-    
+
     return minimum, maximum
 
 

@@ -1,20 +1,17 @@
-
-
 def gcd_naive(a, b):
-    for divisor in range(min(a,b), 0, -1):
+    for divisor in range(min(a, b), 0, -1):
         if a % divisor == 0 and b % divisor == 0:
             return divisor
 
 
 def gcd(a, b):
-    # iterative approach
     while b % a != 0:
         a, b = b, a % b
-    
+
     return a
 
+
 def reference(a, b):
-    # base case
     if b == 0:
         return a
     else:
@@ -22,6 +19,10 @@ def reference(a, b):
         return reference(b, a % b)
 
 
-if __name__ == '__main__':
+def main():
     input_a, input_b = map(int, input().split())
     print(gcd(input_a, input_b))
+
+
+if __name__ == '__main__':
+    main()

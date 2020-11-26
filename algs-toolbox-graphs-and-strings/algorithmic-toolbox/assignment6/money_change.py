@@ -1,5 +1,3 @@
-
-
 def money_change(money):
     count = 0
     denom = [10, 5, 1]
@@ -12,8 +10,9 @@ def money_change(money):
                 count += number
                 money = money - number * val
                 break
-    
+
     return count
+
 
 def main():
     input_money = int(input())

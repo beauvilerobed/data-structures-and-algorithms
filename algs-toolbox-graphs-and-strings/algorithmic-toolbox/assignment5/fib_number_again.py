@@ -1,9 +1,7 @@
-
-
 def fib_number_again_naive(n, m):
     if n <= 1:
         return n
-    
+
     previous, current = 0, 1
     for _ in range(n):
         previous, current = current, (previous + current) % m
@@ -15,10 +13,10 @@ def fib_number_again(n, m):
     # return pisano period here
     n = n % return_period(m)
     previous, current = 0, 1
-    
+
     for _ in range(n):
         previous, current = current, (previous + current) % m
-    
+
     return previous
 
 

@@ -1,3 +1,4 @@
+# python3
 
 
 def max_pairwise_product_naive(numbers):
@@ -21,7 +22,7 @@ def max_pairwise_product(numbers):
         if numbers[i] > first:
             first = numbers[i]
             first_index = i
-    
+
     # find the second largest value different from the first
     for j in range(len(numbers)):
         if numbers[j] > second and j != first_index:

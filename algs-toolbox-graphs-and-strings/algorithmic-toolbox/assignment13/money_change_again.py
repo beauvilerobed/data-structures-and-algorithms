@@ -1,5 +1,4 @@
 
-
 def change(money):
     coins = [1, 3, 4]
     len_coins = len(coins)

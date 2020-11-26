@@ -10,7 +10,9 @@ class PrimitiveCalculator(unittest.TestCase):
             self.assertEqual(sequence[0], 1)
             self.assertEqual(sequence[-1], n)
             for i in range(len(sequence) - 1):
-                if sequence[i + 1] != sequence[i] + 1 and sequence[i + 1] != 2 * sequence[i]:
+                is_element_plus_one = sequence[i + 1] != sequence[i] + 1
+                is_element_double = sequence[i + 1] != 2 * sequence[i]
+                if is_element_plus_one and is_element_double:
                     self.assertEqual(sequence[i + 1], 3 * sequence[i])
 
 

@@ -13,19 +13,19 @@ def largest_number_naive(numbers):
 
 
 def largest_number(nums):
-    
-	for _ in range(len(nums)):
-		for i in range(len(nums) - 1):
+
+    for _ in range(len(nums)):
+        for i in range(len(nums) - 1):
             # concatenate each letter and it's neighbor and compare
             # the concatenation of each neighbor and the letter
-			first_value = int(str(nums[i]) + str(nums[i+1]))
-			second_value = int(str(nums[i+1]) + str(nums[i]))
-			if first_value < second_value:
-				nums[i], nums[i+1] = nums[i+1], nums[i]
+            first_value = int(str(nums[i]) + str(nums[i+1]))
+            second_value = int(str(nums[i+1]) + str(nums[i]))
+            if first_value < second_value:
+                nums[i], nums[i+1] = nums[i+1], nums[i]
 
-	nums = list(map(str, nums))
+    nums = list(map(str, nums))
 
-	return int("".join(nums))
+    return int("".join(nums))
 
 
 def main():

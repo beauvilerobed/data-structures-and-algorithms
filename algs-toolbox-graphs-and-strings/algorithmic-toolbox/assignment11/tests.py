@@ -15,11 +15,11 @@ class TestMajorityElement(unittest.TestCase):
                 majority_element(list(elements)),
                 majority_element_naive(elements)
             )
-    
+
     def test_large(self):
         for (elements, answer) in [
             ([0] * 5000 + [1] * 5000, 0)
-        ]:  
+        ]:
             self.assertEqual(majority_element(elements), answer)
 
 

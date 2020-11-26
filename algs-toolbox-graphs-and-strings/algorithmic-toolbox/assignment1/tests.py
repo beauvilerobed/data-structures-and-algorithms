@@ -1,6 +1,7 @@
 import unittest
 from random import randint
-from maximum_pairwise_product import max_pairwise_product, max_pairwise_product_naive
+from maximum_pairwise_product import max_pairwise_product,\
+                                     max_pairwise_product_naive
 
 
 class TestMaxPairwiseProduct(unittest.TestCase):
@@ -16,11 +17,13 @@ class TestMaxPairwiseProduct(unittest.TestCase):
 
         for _ in range(number_of_iterations):
             numbers = [randint(0, max_number) for _ in range(array_size)]
-            self.assertEqual(max_pairwise_product(numbers), max_pairwise_product_naive(numbers))
+            self.assertEqual(max_pairwise_product(numbers),
+                             max_pairwise_product_naive(numbers))
 
     def test_large(self):
         self.assertEqual(max_pairwise_product([4] * (2 * 10 ** 5)), 16)
-        self.assertEqual(max_pairwise_product([x for x in range(10 ** 5)]), (10 ** 5 - 1) * (10 ** 5 - 2))
+        self.assertEqual(max_pairwise_product([x for x in range(10 ** 5)]),
+                                             (10 ** 5 - 1) * (10 ** 5 - 2))
         self.assertEqual(max_pairwise_product([1] * (2 * 10 ** 5)), 1)
 
     def test_more(self):
@@ -37,6 +40,6 @@ class TestMaxPairwiseProduct(unittest.TestCase):
         for array, answer in tests:
             self.assertEqual(max_pairwise_product(array), answer)
 
-            
+
 if __name__ == '__main__':
     unittest.main()

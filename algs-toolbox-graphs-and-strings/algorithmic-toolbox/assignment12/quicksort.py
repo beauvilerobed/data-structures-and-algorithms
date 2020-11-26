@@ -1,4 +1,3 @@
-
 from random import randint
 
 
@@ -20,7 +19,7 @@ def partition(array, left, right):
         elif array[j] == x:
             array[finish + 1], array[j] = array[j], array[finish + 1]
             finish += 1
-    
+
     return start, finish
 
 
