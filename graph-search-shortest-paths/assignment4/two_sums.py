@@ -15,8 +15,8 @@ def two_sums(nums, target):
 
 def find_two_sum_total(case, targets):
     count = 0
-    for i in range(len(targets)):
-        count += two_sums(case, targets[i])
+    for target in targets:
+        count += two_sums(case, target)
 
     return count
 
