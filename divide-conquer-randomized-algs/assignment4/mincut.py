@@ -1,69 +1,89 @@
 import copy
 import random
 import sys
+from collections import namedtuple
+from math import log2
+
+
+Edge = namedtuple('Edge', 'vertex vertex_edge')
 
 
 def do_iter_mincut(graph):
     num_vertexes = len(graph.keys())
-    crossing_edges = 2 * num_vertexes
+    crossing_num = 2 * num_vertexes
 
-    iterate = 100
+    # number of repeated trials is determined by the probablity
+    # of output of A & B, the min cut of the graph.
+    iterations = num_vertexes ** 2
 
-    while iterate > 0:
-        new_graph = copy.deepcopy(graph)
-        local_minimum = compute_mincut(new_graph)
-        vertex_keys = list(local_minimum.keys())
-        local_min_crossing_edges = len(local_minimum[vertex_keys[0]])
-        if crossing_edges > local_min_crossing_edges:
-            crossing_edges = local_min_crossing_edges
+    for _ in range(iterations):
+        graph_copy = copy.deepcopy(graph)
+        local_min_crossing_num = compute_mincut(graph_copy)
+        if crossing_num > local_min_crossing_num:
+            crossing_num = local_min_crossing_num
 
-        iterate = iterate - 1
-
-    return crossing_edges
+    return crossing_num
 
 
 def compute_mincut(graph):
-    if len(graph.keys()) < 3:
+    contracted_graph = rand_contraction(graph)
+    for key in contracted_graph:
+        return len(contracted_graph[key])
+
+
+def rand_contraction(graph):
+    if len(graph.keys()) <= 2:
         return graph
 
-    edges = []
+    edges = return_edges(graph)
 
+    r_edge = random.choice(edges)
+    temp = list()
+    for edge in r_edge.vertex, r_edge.vertex_edge:
+        temp += graph[edge]
+
+    final = compute_final_edges(r_edge, temp)
+
+    del graph[r_edge.vertex]
+    del graph[r_edge.vertex_edge]
+
+    new_vertex = update_graph(graph, r_edge)
+    graph[new_vertex] = final
+
+    return rand_contraction(graph)
+
+
+def return_edges(graph):
+    edges = []
     for k in graph.keys():
         for e in graph[k]:
-            edge = [k, e]
+            edge = Edge(e, k)
             edges.append(edge)
 
-    random_edge = random.choice(edges)
-    vertex = random_edge[0]
-    vertex_to_merge = random_edge[1]
-    edges_of_vertex = graph[vertex]
+    return edges
 
-    merge_vertex_name = vertex
-    edges_of_graph_merge_vertex = graph[vertex_to_merge]
 
-    penultimate_edges = edges_of_vertex + edges_of_graph_merge_vertex
-    final_edges = []
+def compute_final_edges(r_edge, temp):
+    final = []
+    for v in temp:
+        if (v != r_edge.vertex) & (v != r_edge.vertex_edge):
+            final.append(v)
+    
+    return final
 
-    for v in penultimate_edges:
-        if (v != vertex) & (v != vertex_to_merge):
-            final_edges.append(v)
 
-    del graph[vertex]
-    del graph[vertex_to_merge]
-
+def update_graph(graph, r_edge):
+    new_vertex = r_edge.vertex
     for k in graph.keys():
-        temp_edges = []
+        new = []
         for edge in graph[k]:
-            if (edge == vertex) | (edge == vertex_to_merge):
-                temp_edges.append(merge_vertex_name)
+            if (edge == r_edge.vertex) | (edge == r_edge.vertex_edge):
+                new.append(new_vertex)
             else:
-                temp_edges.append(edge)
+                new.append(edge)
+        graph[k] = new
 
-        graph[k] = temp_edges
-
-    graph[merge_vertex_name] = final_edges
-
-    return compute_mincut(graph)
+    return new_vertex
 
 
 def main():
