@@ -11,10 +11,7 @@ Edge = namedtuple('Edge', 'vertex vertex_edge')
 def do_iter_mincut(graph):
     num_vertexes = len(graph.keys())
     crossing_num = 2 * num_vertexes
-
-    # number of repeated trials is determined by the probablity
-    # of output of A & B, the min cut of the graph.
-    iterations = num_vertexes ** 2
+    iterations = 25
 
     for _ in range(iterations):
         graph_copy = copy.deepcopy(graph)
