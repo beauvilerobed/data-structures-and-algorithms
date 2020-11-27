@@ -1,17 +1,16 @@
 from jobs import scheduling, scheduling_ratio
 import unittest
-from file_reader import generate_files, generate_inputs_outputs_jobs
+from file_reader import generate_files, generate_cases_jobs
 
 
-input_files, output_files, assignment, file_path_length = generate_files()
-inputs_outputs = generate_inputs_outputs_jobs(input_files, output_files,
-                                              assignment, file_path_length)
+input_files, output_files= generate_files()
+cases = generate_cases_jobs(input_files, output_files)
 
 
 class TestJobs(unittest.TestCase):
     def test_jobs_difference(self):
         count = 1
-        for input_value, output_value in inputs_outputs:
+        for input_value, output_value in cases:
             result = scheduling(input_value)
             result_ratio = scheduling_ratio(input_value)
             self.assertEqual([result, result_ratio], output_value)
