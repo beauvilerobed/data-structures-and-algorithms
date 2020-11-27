@@ -56,12 +56,12 @@ def select_last(left, right):
 
 def select_middle(input_array, left, right):
     middle = left + ((right - left) // 2)
-    median = statistics.median([input_array[left],
-                                input_array[right],
-                                input_array[middle]])
-    middle_index = input_array.index(median)
-    return middle_index
-
+    nums = [input_array[left], input_array[right], input_array[middle]]
+    median = statistics.median(nums)
+    for index in left, right, middle:
+        if input_array[index] == median:
+            return index
+        
 
 def main():
     data = sys.stdin.read()
@@ -71,6 +71,7 @@ def main():
     print(count_sort(data_set1, 'left'))
     print(count_sort(data_set2, 'right'))
     print(count_sort(data_set3, 'middle'))
+
 
 if __name__ == '__main__':
     main()

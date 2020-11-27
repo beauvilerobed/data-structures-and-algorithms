@@ -2,16 +2,16 @@ import os
 import glob
 
 
-def generate_paths(path='/tests/*'):
+def generate_files(path='/tests/*'):
     test_case_path = os.getcwd() + path
-    paths = glob.glob(test_case_path)
+    files = glob.glob(test_case_path)
 
-    return paths
+    return files
 
 
-def generate_tests(paths):
+def generate_tests(files):
     cases = []
-    for path in paths:
+    for path in files:
         with open(path, 'r') as f:
             lines = f.readlines()
             number_pair = list(map(int, lines))

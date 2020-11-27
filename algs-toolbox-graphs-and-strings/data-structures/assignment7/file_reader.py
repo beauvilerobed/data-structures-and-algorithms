@@ -28,6 +28,12 @@ def generate_test_case(files):
                 lines = f.readlines()
                 trees.append(lines)
 
+    trees = generate_trees(trees)
+
+    return trees, solutions
+
+
+def generate_trees(trees):
     for i in range(len(trees)):
         tree = TreeOrders()
         lines = trees[i]
@@ -44,4 +50,4 @@ def generate_test_case(files):
         tree.read(n, key, left, right)
         trees[i] = tree
 
-    return trees, solutions
+    return trees

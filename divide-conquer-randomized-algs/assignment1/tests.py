@@ -1,9 +1,9 @@
 import unittest
 from karatsuba import karatsuba
-from file_reader import generate_paths, generate_tests
+from file_reader import generate_files, generate_tests
 
-paths = generate_paths()
-cases = generate_tests(paths)
+files = generate_files()
+cases = generate_tests(files)
 
 
 class TestKaratsuba(unittest.TestCase):
