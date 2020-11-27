@@ -24,7 +24,7 @@ class Graph:
 def dijkstra(graph):
     root = graph.vertices[0]
     root.visited = True
-    used_paths = [root.value]
+    used_paths = {root.value}
     root.path_length = 0
     computed_shortest_path = {root.value}
     n = len(graph.vertices) - 1
@@ -43,7 +43,7 @@ def dijkstra(graph):
 
         chosen_edge = minimimize[minimum]
         edge = chosen_edge[1][0]
-        used_paths.append(edge.value)
+        used_paths.add(edge.value)
         for vertex_in_graph in graph.vertices:
             if vertex_in_graph.value == edge.value:
                 vertex_in_graph.visited = True

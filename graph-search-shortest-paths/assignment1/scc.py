@@ -66,17 +66,16 @@ def main():
     data = sys.stdin.readlines()
     graph = Graph()
     for line in data:
-        (_id, connecting_vertex) = (int(i) for i in line.split(' ', 1))
-        if _id not in graph.nodes:
-            graph.nodes[_id] = Node(_id, edges=[connecting_vertex])
+        (vertex, edge) = list(map(int, line.split()))
+        if vertex not in graph.nodes:
+            graph.nodes[vertex] = Node(vertex, edges=[edge])
         else:
-            graph.nodes[_id].edges.append(connecting_vertex)
+            graph.nodes[vertex].edges.append(edge)
 
-        if connecting_vertex not in graph.nodes:
-            graph.nodes[connecting_vertex] =\
-                Node(connecting_vertex, edges=[-_id])
+        if edge not in graph.nodes:
+            graph.nodes[edge] = Node(edge, edges=[-vertex])
         else:
-            graph.nodes[connecting_vertex].edges.append(-_id)
+            graph.nodes[edge].edges.append(-vertex)
 
     print(find_scc(graph))
 
