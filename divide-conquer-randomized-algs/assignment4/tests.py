@@ -1,11 +1,10 @@
 import unittest
 from mincut import do_iter_mincut
-from file_reader import generate_files, generate_input_ouputs
+from file_reader import generate_files, generate_cases
 
 
-input_files, output_files, assignment, file_path_length = generate_files()
-inputs_outputs = generate_input_ouputs(input_files, output_files,
-                                       assignment, file_path_length)
+input_files, output_files, file_path_length = generate_files()
+inputs_outputs = generate_cases(input_files, output_files, file_path_length)
 
 
 class TestMinCut(unittest.TestCase):

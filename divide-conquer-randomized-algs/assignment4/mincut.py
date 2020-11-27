@@ -7,8 +7,7 @@ def do_iter_mincut(graph):
     num_vertexes = len(graph.keys())
     crossing_edges = 2 * num_vertexes
 
-    iterate = 50
-    minimum_cut = graph
+    iterate = 100
 
     while iterate > 0:
         new_graph = copy.deepcopy(graph)
@@ -17,7 +16,6 @@ def do_iter_mincut(graph):
         local_min_crossing_edges = len(local_minimum[vertex_keys[0]])
         if crossing_edges > local_min_crossing_edges:
             crossing_edges = local_min_crossing_edges
-            minimum_cut = local_minimum
 
         iterate = iterate - 1
 
@@ -25,7 +23,7 @@ def do_iter_mincut(graph):
 
 
 def compute_mincut(graph):
-    if len(graph.keys()) <= 2:
+    if len(graph.keys()) < 3:
         return graph
 
     edges = []
@@ -38,12 +36,12 @@ def compute_mincut(graph):
     random_edge = random.choice(edges)
     vertex = random_edge[0]
     vertex_to_merge = random_edge[1]
-    edges_of_graph_vertex = graph[vertex]
+    edges_of_vertex = graph[vertex]
 
     merge_vertex_name = vertex
     edges_of_graph_merge_vertex = graph[vertex_to_merge]
 
-    penultimate_edges = edges_of_graph_vertex + edges_of_graph_merge_vertex
+    penultimate_edges = edges_of_vertex + edges_of_graph_merge_vertex
     final_edges = []
 
     for v in penultimate_edges:
@@ -77,6 +75,7 @@ def main():
         edges = values[1:]
         graph[vertex] = edges
     print(do_iter_mincut(graph))
+
 
 if __name__ == '__main__':
     main()
