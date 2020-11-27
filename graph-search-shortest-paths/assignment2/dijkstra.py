@@ -55,7 +55,7 @@ def dijkstra(graph):
     values = []
 
     for vertex in graph.vertices:
-        if vertex.value in [7, 37, 59, 82, 99, 115, 133, 165, 188, 197]:
+        if vertex.value in {7, 37, 59, 82, 99, 115, 133, 165, 188, 197}:
             values.append(vertex.path_length)
     return values
 
@@ -75,6 +75,7 @@ def main():
         graph.vertices.append(node)
 
     dijkstra(graph)
+
 
 if __name__ == '__main__':
     main()
