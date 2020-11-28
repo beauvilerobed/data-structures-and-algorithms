@@ -14,8 +14,8 @@ inputs_outputs2 = generate_cases_cluster_large(input_files2, output_files2)
 
 
 class TestCluster(unittest.TestCase):
-    # takes ~ 60 sec for both cases
-    
+    # takes a total ~ 60 sec.
+
     def test_cases(self):
         for graph, num_of_nodes, data in inputs_outputs:
             self.assertEqual(cluster(graph, num_of_nodes, k_cluster=4), data)
