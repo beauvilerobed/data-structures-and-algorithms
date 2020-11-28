@@ -98,7 +98,7 @@
 
 
 <details>
-<summary><b>Graph Search and Shortest Path</b></summary>
+<summary><b>Greedy Algorithms, Minimum Spanning Trees, and Dynamic Programming</b></summary>
 
 - **Assignment 1**: Scheduling and Prim's MST Algorithm
 - **Assignment 2**: K-Clustering
