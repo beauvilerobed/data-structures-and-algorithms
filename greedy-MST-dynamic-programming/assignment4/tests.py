@@ -2,9 +2,9 @@ import unittest
 from knapsack import knapsack, knapsack_fast
 from file_reader import generate_files, generate_inputs_outputs
 
-input_files, output_files, assignment, file_path_length = generate_files()
-inputs_outputs = generate_inputs_outputs(input_files, output_files,
-                                         assignment, file_path_length)
+
+input_files, output_files = generate_files()
+inputs_outputs = generate_inputs_outputs(input_files, output_files)
 
 
 class TestKnapsack(unittest.TestCase):
