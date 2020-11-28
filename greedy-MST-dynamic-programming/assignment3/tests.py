@@ -5,15 +5,12 @@ from file_reader import generate_files, generate_inputs_outputs_huff,\
 from max_weight_IS import max_weight_IS
 
 
-input_files, output_files, assignment, file_path_length = generate_files()
-inputs_outputs_huff = generate_inputs_outputs_huff(input_files, output_files,
-                                              assignment, file_path_length)
+input_files, output_files = generate_files()
+inputs_outputs_huff = generate_inputs_outputs_huff(input_files, output_files)
 
 max_weight_test_cases = '/tests2/*'
-input_files, output_files, assignment, file_path_length =\
-                                      generate_files(max_weight_test_cases)
-inputs_outputs_max = generate_inputs_outputs_max(input_files, output_files,
-                                             assignment, file_path_length)
+input_files, output_files = generate_files(max_weight_test_cases)
+inputs_outputs_max = generate_inputs_outputs_max(input_files, output_files)
 
 
 class TestHuffmanAndMax(unittest.TestCase):
