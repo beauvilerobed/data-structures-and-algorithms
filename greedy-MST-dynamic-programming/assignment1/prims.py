@@ -12,7 +12,6 @@ def prims(graph, length):
         chosen_edge = [0, 0, 0]
         for vertex in chosen_vertices:
             for edge_pair in graph[vertex]:
-
                 edge_weight = edge_pair[0]
                 edge_value = edge_pair[1]
 
