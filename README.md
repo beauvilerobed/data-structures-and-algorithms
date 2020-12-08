@@ -108,11 +108,7 @@
 </details>
 
 <details>
-<summary>
-<b>
-Shortest Paths Revisited, NP-Complete Problems
-</b>
-</summary>
+<summary><b>Shortest Paths Revisited, NP-Complete Problems</b></summary>
 
 - **Assignment 1**: The Bellman-Ford all-pairs shortest paths.
 - **Assignment 2**: NP-complete problems and exact algorithms for them
