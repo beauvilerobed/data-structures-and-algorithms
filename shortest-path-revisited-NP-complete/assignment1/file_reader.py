@@ -8,8 +8,8 @@ def read_file(file):
         n = int(lines[0].split()[0])
         for line in lines[1:]:
             data = list(map(int, line.split()))
-            vertex = data[0]
-            edge = data[1]
+            vertex = data[0]-1
+            edge = data[1]-1
             edge_len = data[2]
             graph[vertex, edge] = edge_len
 

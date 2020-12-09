@@ -7,31 +7,31 @@ import glob
 
 
 def floyd_warshal(graph, n):
-    A = np.full((n+1, n+1, n+1), float('inf'))
+    A = np.full((n, n), float('inf'))
     for i in range(n):
         for j in range(n):
             if i == j:
-                A[i, j, 0] = 0
+                A[i, j] = 0
             if (i, j) in graph:
-                A[i, j, 0] = graph[i, j]
-            else:
-                A[i, j, 0] = float('inf')
+                A[i, j] = graph[i, j]
+            if i != j and (i, j) not in graph:
+                A[i, j] = float('inf')
     
-    for k in range(1, n+1):
-        for i in range(1, n+1):
-            for j in range(1, n+1):
-                A[i, j, k] = min(A[i, j, k-1], A[i, k-1, k-1] + A[k, j, k-1])
+    for k in range(n):
+        for i in range(n):
+            for j in range(n):
+                A[i, j] = min(A[i, j], A[i, k] + A[k, j])
 
-    for i in range(1, n+1):
-        if A[i,i,n] < 0:
+    for i in range(n):
+        if A[i,i] < 0:
             return 'Null'
 
-    minimum = np.min(A[:,:,n])
-    return minimum
+    np.fill_diagonal(A, np.inf)
+    return A.min()
 
 
 def main():
-    file_path = os.getcwd() + '/assignments/*'
+    file_path = os.getcwd() + '/files/*'
     paths = glob.glob(file_path)
 
     graphs = []
