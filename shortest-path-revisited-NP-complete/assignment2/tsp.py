@@ -30,7 +30,6 @@ def tsp(graph, n):
                                 values.append(A[new_subset, k] + edge_len)
                         
                         A[subset, j] = min(values)
-                        print('finished', m)
     
     minimum = float('inf')
     s_len = len(subsets)
@@ -40,7 +39,7 @@ def tsp(graph, n):
         if A[final_subset, j] + edge_len < minimum:
             minimum = A[final_subset, j] + edge_len
 
-    return minimum
+    return int(minimum)
 
 def subtract(subset, singleton):
     subset_list = list(subset)
@@ -67,7 +66,7 @@ def get_subsets(n):
 def main():
     cities, n = read_file('cities.txt')
     graph = get_graph(cities, n)
-    print(tsp(graph, n))
+    print(tsp(graph, n) == 7)
 
 
 if __name__ == '__main__':
