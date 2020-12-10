@@ -1,3 +1,5 @@
+# python3
+
 from itertools import combinations
 from file_reader import read_file, get_graph
 
@@ -41,6 +43,7 @@ def tsp(graph, n):
 
     return int(minimum)
 
+
 def subtract(subset, singleton):
     subset_list = list(subset)
     value = singleton[0]
@@ -53,8 +56,8 @@ def subtract(subset, singleton):
 def get_subsets(n):
     nums = [i + 1 for i in range(n)]
     perms = []
-    for i in range(1,n):
-        perms.extend(combinations(nums[1:],i))
+    for i in range(1, n):
+        perms.extend(combinations(nums[1:], i))
 
     subsets = [(1,)]
     for nums in perms:
@@ -71,3 +74,4 @@ def main():
 
 if __name__ == '__main__':
     main()
+    
