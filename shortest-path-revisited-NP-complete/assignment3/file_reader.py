@@ -21,7 +21,6 @@ def read_file(file):
 
         return cities, n
 
-print(read_file('cities.txt')[0])
 
 def get_graph(cities, n):
     graph = {}
