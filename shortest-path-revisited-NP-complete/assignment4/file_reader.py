@@ -1,8 +1,9 @@
-# python3 
+# python3
 
 from collections import namedtuple, defaultdict
 
 Clause = namedtuple('Clause', 'left right')
+
 
 def read_file(file):
     with open(file) as f:
@@ -18,18 +19,22 @@ def read_file(file):
 
 
 def reduce_size(clauses):
-    pos = {clause.left for clause in clauses if clause.left > 0} | {clause.right for clause in clauses if clause.right > 0}
-    neg = {-clause.left for clause in clauses if clause.left < 0} | {-clause.right for clause in clauses if clause.right < 0}
-    # use symmetric difference between two sets to determine the singular variables
+    pos = {clause.left for clause in clauses if clause.left > 0} | \
+          {clause.right for clause in clauses if clause.right > 0}
+    neg = {-clause.left for clause in clauses if clause.left < 0} | \
+          {-clause.right for clause in clauses if clause.right < 0}
+    
     diff = pos.symmetric_difference(neg)
+    
     while len(diff):
         i = 0
         while i < len(clauses):
             if abs(clauses[i].left) in diff or abs(clauses[i].right) in diff:
                 clauses.pop(i)
             i += 1
-        pos = {clause.left for clause in clauses if clause.left > 0} | {clause.right for clause in clauses if clause.right > 0}
-        neg = {-clause.left for clause in clauses if clause.left < 0} | {-clause.right for clause in clauses if clause.right < 0}
+        pos = {clause.left for clause in clauses if clause.left > 0} | \
+              {clause.right for clause in clauses if clause.right > 0}
+        neg = {-clause.left for clause in clauses if clause.left < 0} | \
+              {-clause.right for clause in clauses if clause.right < 0}
         diff = pos.symmetric_difference(neg)
     return clauses
-

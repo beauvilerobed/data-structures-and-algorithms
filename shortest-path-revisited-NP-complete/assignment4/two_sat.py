@@ -22,6 +22,7 @@ def two_sat(clauses, n):
 
     return 0
 
+
 def main():
     clauses, n = read_file('2sat1.txt')
     clauses = reduce_size(clauses)
@@ -45,4 +46,3 @@ def main():
 
 if __name__ == '__main__':
     main()
-    

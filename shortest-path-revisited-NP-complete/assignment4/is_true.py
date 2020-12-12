@@ -1,5 +1,6 @@
 # python3
 
+
 def is_true(clauses, i, bools):
     left = clauses[i].left
     right = clauses[i].right
