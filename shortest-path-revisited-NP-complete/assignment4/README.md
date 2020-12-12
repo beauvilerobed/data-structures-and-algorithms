@@ -1,4 +1,4 @@
-# Programming Assignment #3
+# Programming Assignment #4
 
 The file format is as follows. In each instance, the number of variables and the number of clauses is the same, and this number is specified on the first line of the file. Each subsequent line specifies a clause via its two literals, with a number denoting the variable and a "-" sign denoting logical "not". For example, the second line of the first data file is "-16808 75250", which indicates the clause -x_{16808} V x_{75250} ¬x16808 V x75250.
 
