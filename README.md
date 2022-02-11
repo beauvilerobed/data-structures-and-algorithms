@@ -1,7 +1,7 @@
 # Topics from Stanford's & UCS's Algorithms and Data Stuctures course.
 
 <details>
-<summary><b>Algorithmic Toolbox part1</b></summary>
+<summary><b>Algorithmic Toolbox part1 (click to expand list)</b></summary>
 
 - **Assignment 1**: Max Pairwise Product
 - **Assignment 2**: Fibonacci Number
