@@ -121,14 +121,14 @@
 
 Requirements:
 
-`python3`
-
-`unittest`
+```
+python3
+unittest
+```
 
 
 To test:
-`cd some_path\assignment_number`
-
-Run:
-`python3 tests.py`
-
+```
+cd [assignment_number]
+python3 tests.py
+```
