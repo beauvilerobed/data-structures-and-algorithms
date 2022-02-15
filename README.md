@@ -129,6 +129,6 @@ unittest
 
 To test:
 ```
-cd [assignment_number]
+cd [path/to/assignment-number]
 python3 tests.py
 ```
