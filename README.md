@@ -1,4 +1,4 @@
-# Topics from Stanford's & UCS's Algorithms and Data Stuctures course.
+# Topics from Algorithms and Data Stuctures courses.
 
 <details>
 <summary><b>Algorithmic Toolbox part1 (click to expand list)</b></summary>
